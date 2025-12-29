@@ -1,0 +1,116 @@
+@{
+    ViewData["Title"] = "Email Confirmation Failed";
+    Layout = "~/Views/Shared/_Auth.cshtml";
+}
+
+<section class="w-full max-w-md mx-auto px-4 py-10">
+    <!-- Icon + Title -->
+    <div class="text-center">
+        <div
+            class="mx-auto flex h-12 w-12 items-center justify-center rounded-xl
+                   bg-red-500/10 text-red-400 border border-red-500/30">
+            <!-- X / error icon -->
+            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="9" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M9 9l6 6M15 9l-6 6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </div>
+
+        <h1 class="mt-4 text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-50">
+            Email confirmation failed
+        </h1>
+
+        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+            The confirmation link is invalid, expired, or has already been used.
+        </p>
+    </div>
+
+    <!-- Optional extra info from the model -->
+    @* If you pass an error message from the backend, show it here *@
+    @if (ViewBag.ErrorMessage is string error && !string.IsNullOrWhiteSpace(error))
+    {
+        <div class="mt-4 rounded-md border border-red-500/30 bg-red-500/5 px-3 py-2 text-[12px]
+                    text-red-300">
+            @error
+        </div>
+    }
+
+    <div class="mt-6 space-y-2 text-center text-[13px] text-slate-500 dark:text-slate-400">
+        <p>
+            This can happen if you opened the link more than once, or if too much time passed
+            before clicking it.
+        </p>
+        <p>
+            You can request a new confirmation email and try again.
+        </p>
+    </div>
+
+    <!-- CTA buttons -->
+    <div class="mt-8 space-y-3">
+        <!-- Primary: Resend confirmation -->
+        <form asp-controller="Account" asp-action="ResendConfirmationEmail" method="post"
+              class="space-y-2">
+            @* If you need the email, you can either:
+               - Pass it via Model / ViewBag, or
+               - Ask user again on a separate screen.
+               Example hidden field: *@
+            @* <input type="hidden" name="email" value="@Model.Email" /> *@
+
+            <button type="submit"
+                    class="flex w-full items-center justify-center gap-2 rounded-lg
+                           bg-brandGold px-4 py-2.5 text-sm font-semibold text-black
+                           shadow-soft-card hover:bg-yellow-400
+                           focus-visible:outline-none focus-visible:ring-2
+                           focus-visible:ring-brandGold/70"
+                    id="resend-button">
+                Resend confirmation email
+            </button>
+        </form>
+
+        <!-- Secondary: Go to login -->
+        <a asp-controller="Account" asp-action="Login"
+           class="flex w-full items-center justify-center rounded-lg border
+                  border-slate-300 bg-white px-4 py-2.5 text-sm font-medium
+                  text-slate-700 hover:bg-slate-50
+                  dark:border-slate-700 dark:bg-slate-900
+                  dark:text-slate-200 dark:hover:bg-slate-800
+                  focus-visible:outline-none focus-visible:ring-2
+                  focus-visible:ring-slate-600/60">
+            Go back to sign in
+        </a>
+    </div>
+
+    <!-- Small helper text -->
+    <p class="mt-6 text-center text-[12px] text-slate-500 dark:text-slate-400">
+        Still having trouble?
+        <a href="mailto:support@yourbrand.com"
+           class="font-medium text-sky-600 hover:text-sky-500 dark:text-sky-400 dark:hover:text-sky-300">
+            Contact support
+        </a>
+        for further assistance.
+    </p>
+</section>
+
+@section Scripts {
+    <script>
+        (function () {
+            const form = document.querySelector('form[asp-action="ResendConfirmationEmail"]');
+            const button = document.getElementById('resend-button');
+
+            if (!form || !button) return;
+
+            form.addEventListener('submit', function () {
+                // Disable on submit to prevent double-click
+                button.disabled = true;
+                button.classList.add('opacity-70', 'cursor-not-allowed');
+
+                // Simple inline spinner text
+                button.innerHTML = `
+                    <span class="inline-flex items-center gap-2">
+                        <span class="h-4 w-4 animate-spin rounded-full border-2 border-black/30 border-t-black"></span>
+                        <span>Sending...</span>
+                    </span>`;
+            });
+        })();
+    </script>
+}

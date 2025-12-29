@@ -1,0 +1,139 @@
+@model RegisterViewModel
+@{
+    Layout = "~/Views/Shared/_Auth.cshtml";
+    ViewData["Title"] = "Create Account";
+}
+
+<div class="text-center">
+    <h1 class="text-2xl font-semibold text-slate-900 dark:text-slate-50">
+        Create your EMAR Markets account
+    </h1>
+    <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">
+        Open an account in a few simple steps and start trading live.
+    </p>
+</div>
+
+<form asp-action="Register" method="post" class="mt-6 space-y-5">
+    @Html.AntiForgeryToken()
+
+    <!-- Validation summary -->
+    <div asp-validation-summary="All" class="text-sm text-red-500 space-y-1"></div>
+
+    <!-- EMAIL -->
+    <div>
+        <label for="email-input" class="block text-sm font-medium text-slate-800 dark:text-slate-100">
+            Email address
+        </label>
+
+        <input id="email-input" name="Email" type="email" class="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm
+                      text-slate-900 shadow-sm placeholder:text-slate-400
+                      focus:border-brandGold focus:outline-none focus:ring-1 focus:ring-brandGold
+                      dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-500" />
+
+        <p id="email-hint" class="mt-1 hidden text-[11px] text-slate-400"></p>
+    </div>
+
+    <!-- PASSWORD -->
+    <div>
+        <div class="flex items-center justify-between">
+            <label for="password-input" class="block text-sm font-medium text-slate-800 dark:text-slate-100">
+                Password
+            </label>
+            <span class="text-[11px] text-slate-500 dark:text-slate-400">
+                Min. 8 characters
+            </span>
+        </div>
+
+        <div class="mt-1 relative">
+            <input id="password-input" name="Password" type="password"
+                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 pr-14 text-sm
+                          text-slate-900 shadow-sm placeholder:text-slate-400
+                          focus:border-brandGold focus:outline-none focus:ring-1 focus:ring-brandGold
+                          dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-500" />
+
+            <button type="button" id="password-toggle" class="absolute inset-y-0 right-0 mr-2 flex items-center px-2 text-[11px]
+                           rounded-md text-slate-500 hover:text-slate-700
+                           dark:text-slate-400 dark:hover:text-slate-200">
+                Show
+            </button>
+        </div>
+
+        <!-- Password rules (shown only when failing) -->
+        <ul id="password-rules" class="mt-2 hidden space-y-1"></ul>
+
+        <!-- Strength bar -->
+        <div id="password-strength-wrapper"
+            class="mt-2 hidden h-1.5 w-full overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800">
+            <div id="password-strength-bar" class="h-full w-0 rounded-full bg-red-500 transition-all duration-200">
+            </div>
+        </div>
+    </div>
+
+    <!-- CONFIRM PASSWORD -->
+    <div>
+        <label for="confirm-password-input" class="block text-sm font-medium text-slate-800 dark:text-slate-100">
+            Confirm password
+        </label>
+
+        <div class="mt-1 relative">
+            <input id="confirm-password-input" name="ConfirmPassword" type="password"
+                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 pr-14 text-sm
+                          text-slate-900 shadow-sm placeholder:text-slate-400
+                          focus:border-brandGold focus:outline-none focus:ring-1 focus:ring-brandGold
+                          dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-500" />
+
+            <button type="button" id="confirm-password-toggle" class="absolute inset-y-0 right-0 mr-2 flex items-center px-2 text-[11px]
+                           rounded-md text-slate-500 hover:text-slate-700
+                           dark:text-slate-400 dark:hover:text-slate-200">
+                Show
+            </button>
+        </div>
+
+        <p id="confirm-hint" class="mt-1 text-[11px] text-slate-400">
+            Repeat the same password to confirm.
+        </p>
+    </div>
+
+    <!-- TERMS -->
+    <div class="pt-1">
+        <label class="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-400">
+            <input type="checkbox" name="AcceptTerms" class="mt-0.5 h-4 w-4 rounded border-slate-300 text-brandGold
+                          focus:ring-brandGold dark:border-slate-600" />
+            <span>
+                I agree to the
+                <a href="#site-footer" class="text-brandGold hover:underline">
+                    Terms &amp; Conditions
+                </a>
+                and confirm that I understand the risks of trading leveraged products.
+            </span>
+        </label>
+    </div>
+
+    <button type="submit" id="register-submit" class="mt-2 w-full inline-flex items-center justify-center gap-2
+               rounded-lg bg-brandGold px-4 py-2.5 text-sm font-semibold
+               text-black shadow-soft-card
+               hover:bg-yellow-400 focus-visible:outline-none
+               focus-visible:ring-2 focus-visible:ring-brandGold/70">
+
+        <span id="register-submit-label">Create account</span>
+
+        <!-- Spinner -->
+        <span id="register-submit-spinner" class="hidden h-4 w-4 animate-spin rounded-full border-2
+                 border-black/30 border-t-black
+                 dark:border-slate-100/40 dark:border-t-slate-100">
+        </span>
+    </button>
+
+</form>
+
+<!-- BELOW FORM LINK -->
+<div class="mt-6 text-center text-sm text-slate-600 dark:text-slate-400">
+    Already have an account?
+    <a href="~/Account/Login" class="font-medium text-brandGold hover:underline">
+        Sign in
+    </a>
+</div>
+
+@section Scripts {
+    <script src="~/js/register.js"></script>
+}

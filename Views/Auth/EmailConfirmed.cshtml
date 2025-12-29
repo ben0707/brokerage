@@ -1,0 +1,70 @@
+@{
+    ViewData["Title"] = "Email Confirmed";
+    Layout = "~/Views/Shared/_Auth.cshtml";
+}
+
+<section class="w-full max-w-md mx-auto px-4 py-10">
+    <!-- Icon + Title -->
+    <div class="text-center">
+        <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-xl
+                   bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+            <!-- Check icon -->
+            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </div>
+
+        <h1 class="mt-4 text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-50">
+            Your email has been verified
+        </h1>
+
+        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+            Thank you for confirming your email address. Your account is now ready to use.
+        </p>
+    </div>
+
+    <!-- Details -->
+    <div class="mt-6 space-y-2 text-center text-[13px] text-slate-500 dark:text-slate-400">
+        <p>
+            You can now sign in to your account to start exploring the platform,
+            fund your wallet, and begin trading.
+        </p>
+        @* If you pass Model.Email you can show it here *@
+        @* <p class="text-[12px] text-slate-500 dark:text-slate-400">
+            Verified email: <span class="font-medium text-slate-800 dark:text-slate-100">@Model.Email</span>
+           </p> *@
+    </div>
+
+    <!-- CTA buttons -->
+    <div class="mt-8 space-y-3">
+        <!-- Primary: Go to login -->
+        <a asp-controller="Account" asp-action="Login" class="flex w-full items-center justify-center gap-2 rounded-lg
+                  bg-brandGold px-4 py-2.5 text-sm font-semibold text-black
+                  shadow-soft-card hover:bg-yellow-400
+                  focus-visible:outline-none focus-visible:ring-2
+                  focus-visible:ring-brandGold/70">
+            Continue to sign in
+        </a>
+
+        <!-- Secondary: Go home (optional) -->
+        <a asp-controller="Home" asp-action="Index" class="flex w-full items-center justify-center rounded-lg border
+                  border-slate-300 bg-white px-4 py-2.5 text-sm font-medium
+                  text-slate-700 hover:bg-slate-50
+                  dark:border-slate-700 dark:bg-slate-900
+                  dark:text-slate-200 dark:hover:bg-slate-800
+                  focus-visible:outline-none focus-visible:ring-2
+                  focus-visible:ring-slate-600/60">
+            Back to homepage
+        </a>
+    </div>
+
+    <!-- Small helper text -->
+    <p class="mt-6 text-center text-[12px] text-slate-500 dark:text-slate-400">
+        Didn’t create this account?
+        <a href="mailto:support@yourbrand.com"
+            class="font-medium text-sky-600 hover:text-sky-500 dark:text-sky-400 dark:hover:text-sky-300">
+            Contact support
+        </a>
+        immediately.
+    </p>
+</section>

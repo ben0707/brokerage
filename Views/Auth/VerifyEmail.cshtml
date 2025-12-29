@@ -1,0 +1,276 @@
+@{
+    ViewData["Title"] = "Verify Email";
+    Layout = "~/Views/Shared/_Auth.cshtml";
+}
+
+<section class="w-full max-w-md mx-auto px-4 py-10">
+    <!-- Page heading -->
+    <div class="text-center">
+        <h1 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-50">
+            Verify your email
+        </h1>
+        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+            Enter the 6-digit code we sent to your email to complete verification.
+        </p>
+    </div>
+
+    <form asp-action="VerifyEmail" method="post" id="verify-email-form" class="mt-8 space-y-6">
+        @* If you need to pass userId / email from controller *@
+        @* <input type="hidden" name="UserId" value="@Model.UserId" /> *@
+        @* <input type="hidden" name="Email" value="@Model.Email" /> *@
+
+        <!-- Hidden field that will contain the combined 6-digit code -->
+        <input type="hidden" id="otp-full" name="OtpCode" />
+
+        <!-- Validation summary -->
+        <div asp-validation-summary="ModelOnly" class="text-sm text-red-500"></div>
+
+        <!-- OTP input boxes -->
+        <div class="flex flex-col gap-3">
+            <label class="text-xs font-medium tracking-wide text-slate-600 dark:text-slate-300">
+                6-digit verification code
+            </label>
+
+            <div class="flex justify-between gap-2">
+                @for (int i = 0; i < 6; i++)
+                {
+                    <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]*" class="otp-input w-10 h-12 md:w-11 md:h-12 text-center text-lg font-semibold
+                                   rounded-lg border border-slate-300 bg-white text-slate-900
+                                   placeholder:text-slate-400
+                                   focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500
+                                   dark:border-slate-700 dark:bg-slate-900 dark:text-slate-50" data-index="@i" />
+                }
+            </div>
+
+            <p id="otp-hint" class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
+                Only numbers are allowed. The code expires in a few minutes.
+            </p>
+
+            <span id="otp-error" class="hidden text-[11px] text-red-500">
+                Please enter all 6 digits of the code.
+            </span>
+        </div>
+
+        <!-- Resend + timer -->
+        <div class="flex items-center justify-between text-[12px] text-slate-500 dark:text-slate-400">
+            <div>
+                Didn’t receive the code?
+            </div>
+            <button type="button" id="resend-code-btn" class="text-xs font-medium text-sky-600 hover:text-sky-500
+                           dark:text-sky-400 dark:hover:text-sky-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled>
+                Resend in <span id="resend-timer">60</span>s
+            </button>
+        </div>
+
+        <!-- Submit button -->
+        <div class="pt-2">
+            <button type="submit" id="verify-submit" class="w-full inline-flex items-center justify-center gap-2
+                           rounded-lg bg-brandGold px-4 py-2.5 text-sm font-semibold
+                           text-black shadow-soft-card
+                           hover:bg-yellow-400 focus-visible:outline-none
+                           focus-visible:ring-2 focus-visible:ring-brandGold/70">
+                <span id="verify-submit-label">Verify email</span>
+
+                <span id="verify-submit-spinner" class="hidden h-4 w-4 animate-spin rounded-full border-2
+                             border-black/30 border-t-black
+                             dark:border-slate-100/40 dark:border-t-slate-100">
+                </span>
+            </button>
+        </div>
+    </form>
+</section>
+
+@section Scripts {
+    <script>
+        (function () {
+            const inputs = document.querySelectorAll('.otp-input');
+            const hiddenOtp = document.getElementById('otp-full');
+            const otpError = document.getElementById('otp-error');
+            const otpHint = document.getElementById('otp-hint');
+
+            const form = document.getElementById('verify-email-form');
+            const submitBtn = document.getElementById('verify-submit');
+            const submitLabel = document.getElementById('verify-submit-label');
+            const submitSpinner = document.getElementById('verify-submit-spinner');
+
+            const resendBtn = document.getElementById('resend-code-btn');
+            const resendTimerSpan = document.getElementById('resend-timer');
+
+            // ------- OTP INPUT BEHAVIOUR -------
+
+            function focusNext(currentIndex) {
+                if (currentIndex < inputs.length - 1) {
+                    inputs[currentIndex + 1].focus();
+                }
+            }
+
+            function focusPrev(currentIndex) {
+                if (currentIndex > 0) {
+                    inputs[currentIndex - 1].focus();
+                }
+            }
+
+            function getOtpValue() {
+                let code = '';
+                inputs.forEach(i => code += (i.value || '').trim());
+                return code;
+            }
+
+            function clearOtpError() {
+                if (otpError) otpError.classList.add('hidden');
+                if (otpHint) otpHint.classList.remove('text-red-500');
+            }
+
+            inputs.forEach((input, index) => {
+                // Only allow digits
+                input.addEventListener('input', (e) => {
+                    let value = e.target.value.replace(/\D/g, '');
+                    if (value.length > 1) {
+                        // If user pasted into a single box
+                        value = value.slice(0, 1);
+                    }
+                    e.target.value = value;
+
+                    clearOtpError();
+
+                    if (value && index < inputs.length - 1) {
+                        focusNext(index);
+                    }
+
+                    // Update hidden field
+                    hiddenOtp.value = getOtpValue();
+                });
+
+                // Keyboard navigation
+                input.addEventListener('keydown', (e) => {
+                    clearOtpError();
+
+                    const key = e.key;
+
+                    if (key === 'Backspace' || key === 'Delete') {
+                        if (!input.value && index > 0) {
+                            focusPrev(index);
+                        }
+                        return;
+                    }
+
+                    if (key === 'ArrowLeft') {
+                        e.preventDefault();
+                        focusPrev(index);
+                    }
+
+                    if (key === 'ArrowRight') {
+                        e.preventDefault();
+                        focusNext(index);
+                    }
+                });
+
+                // Paste full code anywhere
+                input.addEventListener('paste', (e) => {
+                    e.preventDefault();
+                    const pasted = (e.clipboardData || window.clipboardData).getData('text');
+                    const digits = pasted.replace(/\D/g, '').slice(0, inputs.length);
+
+                    digits.split('').forEach((ch, i) => {
+                        inputs[i].value = ch;
+                    });
+
+                    if (digits.length < inputs.length) {
+                        for (let i = digits.length; i < inputs.length; i++) {
+                            inputs[i].value = '';
+                        }
+                    }
+
+                    hiddenOtp.value = getOtpValue();
+
+                    const lastFilledIndex = Math.min(digits.length, inputs.length) - 1;
+                    if (lastFilledIndex >= 0) {
+                        inputs[lastFilledIndex].focus();
+                    } else {
+                        inputs[0].focus();
+                    }
+                });
+            });
+
+            // Set initial focus on first box
+            if (inputs.length > 0) {
+                inputs[0].focus();
+            }
+
+            // ------- PREVENT DOUBLE SUBMIT / LOADING STATE -------
+
+            if (form && submitBtn && submitLabel && submitSpinner) {
+                form.addEventListener('submit', function (e) {
+                    const code = getOtpValue();
+
+                    // Basic front-end validation: must be 6 digits
+                    if (!code || code.length !== 6) {
+                        e.preventDefault();
+                        if (otpError) {
+                            otpError.textContent = 'Please enter all 6 digits of the verification code.';
+                            otpError.classList.remove('hidden');
+                        }
+                        if (otpHint) {
+                            otpHint.classList.add('text-red-500');
+                        }
+                        return;
+                    }
+
+                    hiddenOtp.value = code;
+
+                    if (submitBtn.dataset.submitting === 'true') {
+                        return;
+                    }
+
+                    submitBtn.dataset.submitting = 'true';
+                    submitBtn.disabled = true;
+                    submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+
+                    submitLabel.textContent = 'Verifying...';
+                    submitSpinner.classList.remove('hidden');
+                });
+            }
+
+            // ------- RESEND TIMER -------
+
+            let timerSeconds = 60;
+            function tickTimer() {
+                if (!resendTimerSpan || !resendBtn) return;
+
+                resendTimerSpan.textContent = timerSeconds;
+
+                if (timerSeconds <= 0) {
+                    resendBtn.disabled = false;
+                    resendBtn.textContent = 'Resend code';
+                    return;
+                }
+
+                timerSeconds--;
+                setTimeout(tickTimer, 1000);
+            }
+
+            if (resendBtn && resendTimerSpan) {
+                // Start countdown immediately when page loads
+                tickTimer();
+
+                resendBtn.addEventListener('click', function () {
+                    if (resendBtn.disabled) return;
+
+                    // Here you can optionally call an endpoint via fetch()
+                    // or just submit a small form / redirect to resend logic.
+                    // For now we just reset timer UI.
+                    resendBtn.disabled = true;
+                    resendBtn.innerHTML = 'Resend in <span id="resend-timer">60</span>s';
+                    timerSeconds = 60;
+                    // Re-bind the timer span
+                    const newSpan = resendBtn.querySelector('#resend-timer');
+                    if (newSpan) {
+                        resendTimerSpan = newSpan;
+                    }
+                    tickTimer();
+                });
+            }
+        })();
+    </script>
+}

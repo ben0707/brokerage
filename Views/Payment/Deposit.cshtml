@@ -1,0 +1,335 @@
+@{
+    Layout = "~/Views/Shared/_Account.cshtml";
+    ViewData["Title"] = "Deposit";
+}
+
+<div class="mb-6">
+    <h1 class="text-2xl font-semibold text-slate-900 dark:text-white">All payment methods</h1>
+    <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">Choose a method to deposit funds into your wallet.</p>
+</div>
+
+<!-- Cards grid -->
+<div class="grid gap-4 lg:grid-cols-2">
+
+    @* =========================
+       CARD (reusable pattern)
+       - Equal height: min-h + h-full on inner
+       - Logo: <img>
+       - Chevron icon cleaned + consistent
+       ========================= *@
+
+    <!-- Online Bank Transfer -->
+    <a href="#" class="group block rounded-md border border-slate-200 bg-white p-5 shadow-sm transition
+              hover:border-slate-300 hover:shadow-md
+              dark:border-slate-800 dark:bg-black dark:hover:border-slate-700">
+        <div class="flex min-h-[140px] h-full items-start justify-between gap-4">
+            <div class="flex items-start gap-4 min-w-0">
+
+                <!-- Logo (use your real path) -->
+                <div
+                    class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-black ring-1 ring-slate-200 dark:ring-slate-800">
+                    <img src="~/assets/payments/bank-transfer.svg" alt="Bank transfer" class="h-7 w-7 object-contain" />
+                </div>
+
+                <div class="min-w-0">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <h3 class="truncate text-sm font-semibold text-slate-900 dark:text-slate-50">
+                            Online Bank Transfer
+                        </h3>
+
+                        <span class="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-medium text-emerald-700
+                                     dark:bg-emerald-500/10 dark:text-emerald-300">
+                            Recommended
+                        </span>
+                    </div>
+
+                    <dl class="mt-3 space-y-1 text-sm">
+                        <div class="flex gap-2">
+                            <dt class="w-36 shrink-0 text-slate-500 dark:text-slate-400">Processing time</dt>
+                            <dd class="text-slate-800 dark:text-slate-200">Instant - 45 minutes</dd>
+                        </div>
+                        <div class="flex gap-2">
+                            <dt class="w-36 shrink-0 text-slate-500 dark:text-slate-400">Fee</dt>
+                            <dd class="text-slate-800 dark:text-slate-200">0%</dd>
+                        </div>
+                        <div class="flex gap-2">
+                            <dt class="w-36 shrink-0 text-slate-500 dark:text-slate-400">Limits</dt>
+                            <dd class="text-slate-800 dark:text-slate-200">12 - 10,000 USD</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- Clean chevron -->
+            <span
+                class="mt-1 shrink-0 text-slate-300 transition group-hover:text-slate-400 dark:text-slate-700 dark:group-hover:text-slate-500">
+                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M9 18l6-6-6-6" />
+                </svg>
+            </span>
+        </div>
+    </a>
+
+    <!-- Online Bank Transfer #2 -->
+    <a href="#" class="group block rounded-md border border-slate-200 bg-white p-5 shadow-sm transition
+              hover:border-slate-300 hover:shadow-md
+              dark:border-slate-800 dark:bg-black dark:hover:border-slate-700">
+        <div class="flex min-h-[140px] h-full items-start justify-between gap-4">
+            <div class="flex items-start gap-4 min-w-0">
+
+                <div
+                    class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-black ring-1 ring-slate-200 dark:ring-slate-800">
+                    <img src="~/assets/payments/bank-transfer.svg" alt="Bank transfer" class="h-7 w-7 object-contain" />
+                </div>
+
+                <div class="min-w-0">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <h3 class="truncate text-sm font-semibold text-slate-900 dark:text-slate-50">
+                            Online Bank Transfer #2
+                        </h3>
+
+                        <span class="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-medium text-emerald-700
+                                     dark:bg-emerald-500/10 dark:text-emerald-300">
+                            Recommended
+                        </span>
+                    </div>
+
+                    <dl class="mt-3 space-y-1 text-sm">
+                        <div class="flex gap-2">
+                            <dt class="w-36 shrink-0 text-slate-500 dark:text-slate-400">Processing time</dt>
+                            <dd class="text-slate-800 dark:text-slate-200">Instant - 5 days</dd>
+                        </div>
+                        <div class="flex gap-2">
+                            <dt class="w-36 shrink-0 text-slate-500 dark:text-slate-400">Fee</dt>
+                            <dd class="text-slate-800 dark:text-slate-200">0%</dd>
+                        </div>
+                        <div class="flex gap-2">
+                            <dt class="w-36 shrink-0 text-slate-500 dark:text-slate-400">Limits</dt>
+                            <dd class="text-slate-800 dark:text-slate-200">12 - 5,000 USD</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+
+            <span
+                class="mt-1 shrink-0 text-slate-300 transition group-hover:text-slate-400 dark:text-slate-700 dark:group-hover:text-slate-500">
+                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M9 18l6-6-6-6" />
+                </svg>
+            </span>
+        </div>
+    </a>
+
+    <!-- Bank Card -->
+    <a href="#" class="group block rounded-md border border-slate-200 bg-white p-5 shadow-sm transition
+              hover:border-slate-300 hover:shadow-md
+              dark:border-slate-800 dark:bg-black dark:hover:border-slate-700">
+        <div class="flex min-h-[140px] h-full items-start justify-between gap-4">
+            <div class="flex items-start gap-4 min-w-0">
+
+                <div
+                    class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-black ring-1 ring-slate-200 dark:ring-slate-800">
+                    <img src="~/assets/payments/card.svg" alt="Bank card" class="h-7 w-7 object-contain" />
+                </div>
+
+                <div class="min-w-0">
+                    <h3 class="truncate text-sm font-semibold text-slate-900 dark:text-slate-50">Bank Card</h3>
+
+                    <dl class="mt-3 space-y-1 text-sm">
+                        <div class="flex gap-2">
+                            <dt class="w-36 shrink-0 text-slate-500 dark:text-slate-400">Processing time</dt>
+                            <dd class="text-slate-800 dark:text-slate-200">Instant - 30 minutes</dd>
+                        </div>
+                        <div class="flex gap-2">
+                            <dt class="w-36 shrink-0 text-slate-500 dark:text-slate-400">Fee</dt>
+                            <dd class="text-slate-800 dark:text-slate-200">0%</dd>
+                        </div>
+                        <div class="flex gap-2">
+                            <dt class="w-36 shrink-0 text-slate-500 dark:text-slate-400">Limits</dt>
+                            <dd class="text-slate-800 dark:text-slate-200">10 - 10,000 USD</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+
+            <span
+                class="mt-1 shrink-0 text-slate-300 transition group-hover:text-slate-400 dark:text-slate-700 dark:group-hover:text-slate-500">
+                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M9 18l6-6-6-6" />
+                </svg>
+            </span>
+        </div>
+    </a>
+
+    <!-- Bitcoin -->
+    <a href="#" class="group block rounded-md border border-slate-200 bg-white p-5 shadow-sm transition
+              hover:border-slate-300 hover:shadow-md
+              dark:border-slate-800 dark:bg-black dark:hover:border-slate-700">
+        <div class="flex min-h-[140px] h-full items-start justify-between gap-4">
+            <div class="flex items-start gap-4 min-w-0">
+
+                <div
+                    class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white ring-1 ring-slate-200 dark:bg-black dark:ring-slate-800">
+                    <img src="~/assets/payments/btc.svg" alt="Bitcoin" class="h-7 w-7 object-contain" />
+                </div>
+
+                <div class="min-w-0">
+                    <h3 class="truncate text-sm font-semibold text-slate-900 dark:text-slate-50">Bitcoin (BTC)</h3>
+
+                    <dl class="mt-3 space-y-1 text-sm">
+                        <div class="flex gap-2">
+                            <dt class="w-36 shrink-0 text-slate-500 dark:text-slate-400">Processing time</dt>
+                            <dd class="text-slate-800 dark:text-slate-200">Instant - 1 hour</dd>
+                        </div>
+                        <div class="flex gap-2">
+                            <dt class="w-36 shrink-0 text-slate-500 dark:text-slate-400">Fee</dt>
+                            <dd class="text-slate-800 dark:text-slate-200">0%</dd>
+                        </div>
+                        <div class="flex gap-2">
+                            <dt class="w-36 shrink-0 text-slate-500 dark:text-slate-400">Limits</dt>
+                            <dd class="text-slate-800 dark:text-slate-200">10 - 200,000 USD</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+
+            <span
+                class="mt-1 shrink-0 text-slate-300 transition group-hover:text-slate-400 dark:text-slate-700 dark:group-hover:text-slate-500">
+                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M9 18l6-6-6-6" />
+                </svg>
+            </span>
+        </div>
+    </a>
+
+    <!-- Ethereum -->
+    <a href="#" class="group block rounded-md border border-slate-200 bg-white p-5 shadow-sm transition
+              hover:border-slate-300 hover:shadow-md
+              dark:border-slate-800 dark:bg-black dark:hover:border-slate-700">
+        <div class="flex min-h-[140px] h-full items-start justify-between gap-4">
+            <div class="flex items-start gap-4 min-w-0">
+
+                <div
+                    class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white ring-1 ring-slate-200 dark:bg-black dark:ring-slate-800">
+                    <img src="~/assets/payments/eth.svg" alt="Ethereum" class="h-7 w-7 object-contain" />
+                </div>
+
+                <div class="min-w-0">
+                    <h3 class="truncate text-sm font-semibold text-slate-900 dark:text-slate-50">Ethereum (ETH)</h3>
+
+                    <dl class="mt-3 space-y-1 text-sm">
+                        <div class="flex gap-2">
+                            <dt class="w-36 shrink-0 text-slate-500 dark:text-slate-400">Processing time</dt>
+                            <dd class="text-slate-800 dark:text-slate-200">Instant - 15 minutes</dd>
+                        </div>
+                        <div class="flex gap-2">
+                            <dt class="w-36 shrink-0 text-slate-500 dark:text-slate-400">Fee</dt>
+                            <dd class="text-slate-800 dark:text-slate-200">0%</dd>
+                        </div>
+                        <div class="flex gap-2">
+                            <dt class="w-36 shrink-0 text-slate-500 dark:text-slate-400">Limits</dt>
+                            <dd class="text-slate-800 dark:text-slate-200">10 - 200,000 USD</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+
+            <span
+                class="mt-1 shrink-0 text-slate-300 transition group-hover:text-slate-400 dark:text-slate-700 dark:group-hover:text-slate-500">
+                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M9 18l6-6-6-6" />
+                </svg>
+            </span>
+        </div>
+    </a>
+
+    <!-- Neteller -->
+    <a href="#" class="group block rounded-md border border-slate-200 bg-white p-5 shadow-sm transition
+              hover:border-slate-300 hover:shadow-md
+              dark:border-slate-800 dark:bg-black dark:hover:border-slate-700">
+        <div class="flex min-h-[140px] h-full items-start justify-between gap-4">
+            <div class="flex items-start gap-4 min-w-0">
+
+                <div
+                    class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white ring-1 ring-slate-200 dark:bg-black dark:ring-slate-800">
+                    <img src="~/assets/payments/neteller.svg" alt="Neteller" class="h-7 w-7 object-contain" />
+                </div>
+
+                <div class="min-w-0">
+                    <h3 class="truncate text-sm font-semibold text-slate-900 dark:text-slate-50">Neteller</h3>
+
+                    <dl class="mt-3 space-y-1 text-sm">
+                        <div class="flex gap-2">
+                            <dt class="w-36 shrink-0 text-slate-500 dark:text-slate-400">Processing time</dt>
+                            <dd class="text-slate-800 dark:text-slate-200">Instant - 30 minutes</dd>
+                        </div>
+                        <div class="flex gap-2">
+                            <dt class="w-36 shrink-0 text-slate-500 dark:text-slate-400">Fee</dt>
+                            <dd class="text-slate-800 dark:text-slate-200">0%</dd>
+                        </div>
+                        <div class="flex gap-2">
+                            <dt class="w-36 shrink-0 text-slate-500 dark:text-slate-400">Limits</dt>
+                            <dd class="text-slate-800 dark:text-slate-200">50 - 50,000 USD</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+
+            <span
+                class="mt-1 shrink-0 text-slate-300 transition group-hover:text-slate-400 dark:text-slate-700 dark:group-hover:text-slate-500">
+                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M9 18l6-6-6-6" />
+                </svg>
+            </span>
+        </div>
+    </a>
+
+    <!-- Skrill -->
+    <a href="#" class="group block rounded-md border border-slate-200 bg-white p-5 shadow-sm transition
+              hover:border-slate-300 hover:shadow-md
+              dark:border-slate-800 dark:bg-black dark:hover:border-slate-700">
+        <div class="flex min-h-[140px] h-full items-start justify-between gap-4">
+            <div class="flex items-start gap-4 min-w-0">
+
+                <div
+                    class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white ring-1 ring-slate-200 dark:bg-black dark:ring-slate-800">
+                    <img src="~/assets/payments/skrill.svg" alt="Skrill" class="h-7 w-7 object-contain" />
+                </div>
+
+                <div class="min-w-0">
+                    <h3 class="truncate text-sm font-semibold text-slate-900 dark:text-slate-50">Skrill</h3>
+
+                    <dl class="mt-3 space-y-1 text-sm">
+                        <div class="flex gap-2">
+                            <dt class="w-36 shrink-0 text-slate-500 dark:text-slate-400">Processing time</dt>
+                            <dd class="text-slate-800 dark:text-slate-200">Instant - 30 minutes</dd>
+                        </div>
+                        <div class="flex gap-2">
+                            <dt class="w-36 shrink-0 text-slate-500 dark:text-slate-400">Fee</dt>
+                            <dd class="text-slate-800 dark:text-slate-200">0%</dd>
+                        </div>
+                        <div class="flex gap-2">
+                            <dt class="w-36 shrink-0 text-slate-500 dark:text-slate-400">Limits</dt>
+                            <dd class="text-slate-800 dark:text-slate-200">50 - 100,000 USD</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+
+            <span
+                class="mt-1 shrink-0 text-slate-300 transition group-hover:text-slate-400 dark:text-slate-700 dark:group-hover:text-slate-500">
+                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M9 18l6-6-6-6" />
+                </svg>
+            </span>
+        </div>
+    </a>
+
+</div>

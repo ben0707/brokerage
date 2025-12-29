@@ -1,0 +1,127 @@
+@{
+    Layout = "~/Views/Shared/_Account.cshtml";
+    ViewData["Title"] = "Deposit confirmation";
+}
+
+<div class="mx-auto w-full max-w-5xl">
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-semibold tracking-tight text-slate-900 dark:text-white">
+            Deposit
+        </h1>
+
+        <a href="#" class="mt-2 inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:underline
+                  dark:text-blue-400">
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 18l-6-6 6-6" />
+            </svg>
+            Back
+        </a>
+    </div>
+
+    <div class="grid gap-8 lg:grid-cols-[1fr_280px]">
+        <!-- LEFT: SUMMARY -->
+        <section class="space-y-6">
+            <div class="divide-y divide-slate-200 dark:divide-slate-800">
+
+                <!-- Payment method -->
+                <div class="flex items-center justify-between py-4">
+                    <span class="text-sm text-slate-500 dark:text-slate-400">
+                        Payment method
+                    </span>
+
+                    <span class="flex items-center gap-2 text-sm font-medium text-slate-900 dark:text-white">
+                        <span class="flex h-6 w-6 items-center justify-center rounded-full bg-black">
+                            <img src="~/assets/payments/bank-transfer.svg" alt="Online Bank Transfer"
+                                class="h-4 w-4 object-contain" />
+                        </span>
+                        Online Bank Transfer
+                    </span>
+                </div>
+
+                <!-- Amount -->
+                <div class="flex items-center justify-between py-4">
+                    <span class="text-sm text-slate-500 dark:text-slate-400">
+                        Amount
+                    </span>
+                    <span class="text-sm font-medium text-slate-900 dark:text-white">
+                        50,000 USD
+                    </span>
+                </div>
+
+                <!-- Commission -->
+                <div class="flex items-center justify-between py-4">
+                    <span class="text-sm text-slate-500 dark:text-slate-400">
+                        Commission
+                    </span>
+                    <span class="text-sm font-medium text-slate-900 dark:text-white">
+                        No commission
+                    </span>
+                </div>
+
+                <!-- To account -->
+                <div class="flex items-center justify-between py-4">
+                    <span class="text-sm text-slate-500 dark:text-slate-400">
+                        To account
+                    </span>
+                    <span class="flex items-center gap-2 text-sm font-medium text-slate-900 dark:text-white">
+                        <span class="rounded bg-slate-100 px-2 py-0.5 text-xs font-semibold
+                                     dark:bg-white/10">
+                            MT5
+                        </span>
+                        222217462
+                    </span>
+                </div>
+            </div>
+
+            <!-- TOTAL -->
+            <div class="flex items-center justify-between rounded-md bg-slate-50 px-5 py-4
+                        dark:bg-white/5">
+                <span class="text-sm text-slate-600 dark:text-slate-400">
+                    To be deposited
+                </span>
+                <span class="text-xl font-semibold text-slate-900 dark:text-white">
+                    50 000 USD
+                </span>
+            </div>
+
+            <!-- CONFIRM -->
+            <div class="pt-4">
+                <button type="submit" class="inline-flex items-center justify-center rounded-md bg-brandYellow px-6 py-2.5
+                               text-sm font-semibold text-black hover:bg-yellow-300 active:bg-yellow-400">
+                    Confirm
+                </button>
+            </div>
+        </section>
+
+        <!-- RIGHT: TERMS -->
+        <aside class="h-fit">
+            <div class="rounded-md border border-slate-200 bg-white p-5
+                        dark:border-slate-800 dark:bg-black">
+                <h3 class="text-sm font-semibold text-slate-900 dark:text-white">
+                    Terms
+                </h3>
+
+                <dl class="mt-4 space-y-3 text-sm">
+                    <div class="flex justify-between">
+                        <dt class="text-slate-500 dark:text-slate-400">
+                            Average payment time
+                        </dt>
+                        <dd class="font-medium text-slate-900 dark:text-white">
+                            Instant
+                        </dd>
+                    </div>
+                    <div class="flex justify-between">
+                        <dt class="text-slate-500 dark:text-slate-400">
+                            Fee
+                        </dt>
+                        <dd class="font-medium text-slate-900 dark:text-white">
+                            0%
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </aside>
+    </div>
+</div>

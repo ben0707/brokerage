@@ -1,0 +1,624 @@
+@{
+    Layout = "_Account";
+    ViewData["Title"] = "Transaction history";
+}
+
+<section class="w-full">
+    <!-- Header -->
+    <div class="flex items-start justify-between gap-4">
+        <div>
+            <h1 class="text-3xl font-semibold tracking-tight text-slate-900 dark:text-white">Transaction history</h1>
+            <a href="#"
+                class="mt-2 inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:underline dark:text-blue-400 md:hidden">
+                Get support
+            </a>
+        </div>
+        <a href="#" class="hidden text-sm font-medium text-blue-600 hover:underline dark:text-blue-400 md:inline-flex">
+            Get support
+        </a>
+    </div>
+
+    <!-- Filters -->
+    <div class="mt-5">
+        <div class="hidden flex-wrap items-center gap-3 md:flex">
+            <button type="button" class="inline-flex items-center gap-2 rounded-full bg-slate-700 px-4 py-2 text-sm font-medium text-white
+                     hover:bg-slate-600 dark:bg-slate-200 dark:text-black dark:hover:bg-white">
+                <span class="inline-flex h-5 w-5 items-center justify-center">
+                    <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="17" rx="2" />
+                        <path d="M8 2v4M16 2v4M3 10h18" />
+                    </svg>
+                </span>
+                <span>Last 7 days</span>
+                <svg viewBox="0 0 20 20" class="h-4 w-4 opacity-90" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round">
+                    <path d="M6 8l4 4 4-4" />
+                </svg>
+            </button>
+
+            <button type="button" class="inline-flex items-center gap-2 rounded-full bg-slate-100 px-4 py-2 text-sm font-medium text-slate-800
+                     hover:bg-slate-200 dark:bg-white/10 dark:text-slate-100 dark:hover:bg-white/15">
+                <span>All transaction types</span>
+                <svg viewBox="0 0 20 20" class="h-4 w-4 text-slate-500 dark:text-slate-400" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <path d="M6 8l4 4 4-4" />
+                </svg>
+            </button>
+
+            <button type="button" class="inline-flex items-center gap-2 rounded-full bg-slate-100 px-4 py-2 text-sm font-medium text-slate-800
+                     hover:bg-slate-200 dark:bg-white/10 dark:text-slate-100 dark:hover:bg-white/15">
+                <span>All statuses</span>
+                <svg viewBox="0 0 20 20" class="h-4 w-4 text-slate-500 dark:text-slate-400" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <path d="M6 8l4 4 4-4" />
+                </svg>
+            </button>
+
+            <button type="button" class="inline-flex items-center gap-2 rounded-full bg-slate-100 px-4 py-2 text-sm font-medium text-slate-800
+                     hover:bg-slate-200 dark:bg-white/10 dark:text-slate-100 dark:hover:bg-white/15">
+                <span>All accounts</span>
+                <svg viewBox="0 0 20 20" class="h-4 w-4 text-slate-500 dark:text-slate-400" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <path d="M6 8l4 4 4-4" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="flex items-center justify-between gap-3 md:hidden">
+            <button type="button" class="inline-flex items-center gap-2 rounded-full bg-slate-700 px-4 py-2 text-sm font-medium text-white
+                     hover:bg-slate-600 dark:bg-slate-200 dark:text-black dark:hover:bg-white">
+                <span class="inline-flex h-5 w-5 items-center justify-center">
+                    <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="17" rx="2" />
+                        <path d="M8 2v4M16 2v4M3 10h18" />
+                    </svg>
+                </span>
+                <span>Last 7 days</span>
+                <svg viewBox="0 0 20 20" class="h-4 w-4 opacity-90" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round">
+                    <path d="M6 8l4 4 4-4" />
+                </svg>
+            </button>
+
+            <button type="button" class="inline-flex items-center gap-2 rounded-full bg-slate-100 px-4 py-2 text-sm font-medium text-slate-800
+                     hover:bg-slate-200 dark:bg-white/10 dark:text-slate-100 dark:hover:bg-white/15">
+                <span class="inline-flex h-5 w-5 items-center justify-center">
+                    <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 5h16l-6 7v6l-4 1v-7L4 5z" />
+                    </svg>
+                </span>
+                <span>Filter</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Date label -->
+    <div class="mt-5 rounded-md bg-slate-100 px-4 py-2 text-sm text-slate-700 dark:bg-white/5 dark:text-slate-200">
+        Yesterday, 24 December 2025
+    </div>
+
+    <!-- LIST -->
+    <div class="mt-4 space-y-3" id="txList">
+
+        <!-- ========= RECORD 1 ========= -->
+        <button type="button" class="group hidden w-full rounded-md border border-slate-200 bg-white px-6 py-5 text-left shadow-sm outline-none
+                   hover:border-slate-300 hover:shadow-md focus:ring-2 focus:ring-blue-500/40
+                   dark:border-slate-800 dark:bg-black dark:hover:border-slate-700 md:block" data-open-tx
+            data-tx-id="TX-495701549062" data-tx-type="Deposit" data-tx-time="24 Dec, 10:58"
+            data-tx-invoice="495701549062" data-tx-amount="50 000.00 USD" data-tx-status="Done" data-tx-from="901•••878"
+            data-tx-from-label="Online Bank Transfer" data-tx-to="222217462" data-tx-to-label="ex"
+            data-tx-commission="0.00 USD" data-tx-gross="50 000.00 USD">
+            <div class="flex items-center justify-between gap-6">
+
+                <div class="flex min-w-[280px] items-start gap-4">
+                    <span class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700
+                       dark:border-slate-800 dark:bg-black dark:text-slate-100">
+                        <!-- Deposit icon -->
+                        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M12 8v8" />
+                            <path d="M8.5 12 12 15.5 15.5 12" />
+                        </svg>
+                    </span>
+
+                    <div class="leading-tight">
+                        <p class="text-sm font-semibold text-slate-900 dark:text-white">Deposit</p>
+                        <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">10:58</p>
+                        <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Invoice ID 495701549062</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-1 items-center gap-3 text-sm text-slate-600 dark:text-slate-300">
+                    <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-slate-600
+                       dark:bg-white/10 dark:text-slate-200">
+                        <!-- bank/transfer icon -->
+                        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="6" width="18" height="12" rx="2" />
+                            <path d="M7 10h6" />
+                            <path d="M7 14h10" />
+                        </svg>
+                    </span>
+
+                    <span class="font-medium text-slate-700 dark:text-slate-200">Online Bank Transfer</span>
+                    <span class="mx-1 text-slate-400 dark:text-slate-500">→</span>
+
+                    <span class="inline-flex items-center gap-2">
+                        <span class="inline-flex items-center rounded-md bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-700
+                         dark:bg-white/10 dark:text-slate-200">ex</span>
+                        <span class="font-medium">222217462</span>
+                    </span>
+                </div>
+
+                <div class="flex items-center gap-6">
+                    <span class="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-4 py-1.5 text-sm font-medium text-emerald-700
+                       dark:bg-emerald-500/10 dark:text-emerald-200">
+                        <span class="h-2 w-2 rounded-full bg-emerald-600 dark:bg-emerald-300"></span>
+                        Done
+                    </span>
+
+                    <div class="min-w-[150px] text-right text-sm font-semibold text-slate-900 dark:text-white">
+                        + 50 000.00 USD
+                    </div>
+                </div>
+            </div>
+        </button>
+
+        <!-- Mobile card for record 1 -->
+        <button type="button" class="group w-full rounded-md border border-slate-200 bg-white p-4 text-left shadow-sm outline-none
+                   hover:border-slate-300 hover:shadow-md focus:ring-2 focus:ring-blue-500/40
+                   dark:border-slate-800 dark:bg-black dark:hover:border-slate-700 md:hidden" data-open-tx
+            data-tx-id="TX-495701549062" data-tx-type="Deposit" data-tx-time="24 Dec, 10:58"
+            data-tx-invoice="495701549062" data-tx-amount="50 000.00 USD" data-tx-status="Done" data-tx-from="901•••878"
+            data-tx-from-label="Online Bank Transfer" data-tx-to="222217462" data-tx-to-label="ex"
+            data-tx-commission="0.00 NGN" data-tx-gross="50 000.00 USD">
+            <div class="flex items-start justify-between gap-3">
+                <div class="flex items-start gap-3">
+                    <span class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700
+                       dark:border-slate-800 dark:bg-black dark:text-slate-100">
+                        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M12 8v8" />
+                            <path d="M8.5 12 12 15.5 15.5 12" />
+                        </svg>
+                    </span>
+                    <div class="leading-tight">
+                        <p class="text-sm font-semibold text-slate-900 dark:text-white">Deposit</p>
+                        <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">10:58</p>
+                        <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Invoice ID 495701549062</p>
+                    </div>
+                </div>
+
+                <div class="text-right">
+                    <p class="text-sm font-semibold text-slate-900 dark:text-white">+ 50 000.00 USD</p>
+                    <span class="mt-2 inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700
+                       dark:bg-emerald-500/10 dark:text-emerald-200">
+                        <span class="h-2 w-2 rounded-full bg-emerald-600 dark:bg-emerald-300"></span>
+                        Done
+                    </span>
+                </div>
+            </div>
+
+            <div class="mt-4 flex items-center gap-3 text-sm text-slate-600 dark:text-slate-300">
+                <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-slate-600
+                     dark:bg-white/10 dark:text-slate-200">
+                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="6" width="18" height="12" rx="2" />
+                        <path d="M7 10h6" />
+                        <path d="M7 14h10" />
+                    </svg>
+                </span>
+
+                <div class="min-w-0 flex-1">
+                    <p class="truncate text-sm font-medium text-slate-700 dark:text-slate-200">Online Bank Transfer</p>
+                    <div class="mt-1 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                        <span class="truncate">Bank Tr...</span>
+                        <span class="text-slate-400 dark:text-slate-500">→</span>
+                        <span class="inline-flex items-center gap-2">
+                            <span class="inline-flex items-center rounded-md bg-slate-100 px-2 py-0.5 text-[11px] font-semibold text-slate-700
+                           dark:bg-white/10 dark:text-slate-200">ex</span>
+                            <span class="font-medium">222217462</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </button>
+
+        <!-- ========= RECORD 2 (example) ========= -->
+        <button type="button" class="group hidden w-full rounded-md border border-slate-200 bg-white px-6 py-5 text-left shadow-sm outline-none
+                   hover:border-slate-300 hover:shadow-md focus:ring-2 focus:ring-blue-500/40
+                   dark:border-slate-800 dark:bg-black dark:hover:border-slate-700 md:block" data-open-tx
+            data-tx-id="TX-495701549111" data-tx-type="Deposit" data-tx-time="23 Dec, 18:21"
+            data-tx-invoice="495701549111" data-tx-amount="12 500.00 NGN" data-tx-status="Done" data-tx-from="901•••878"
+            data-tx-from-label="Online Bank Transfer" data-tx-to="222217462" data-tx-to-label="ex"
+            data-tx-commission="0.00 NGN" data-tx-gross="12 500.00 NGN">
+            <div class="flex items-center justify-between gap-6">
+                <div class="flex min-w-[280px] items-start gap-4">
+                    <span class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700
+                       dark:border-slate-800 dark:bg-black dark:text-slate-100">
+                        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M12 8v8" />
+                            <path d="M8.5 12 12 15.5 15.5 12" />
+                        </svg>
+                    </span>
+                    <div class="leading-tight">
+                        <p class="text-sm font-semibold text-slate-900 dark:text-white">Deposit</p>
+                        <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">18:21</p>
+                        <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Invoice ID 495701549111</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-1 items-center gap-3 text-sm text-slate-600 dark:text-slate-300">
+                    <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-slate-600
+                       dark:bg-white/10 dark:text-slate-200">
+                        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="6" width="18" height="12" rx="2" />
+                            <path d="M7 10h6" />
+                            <path d="M7 14h10" />
+                        </svg>
+                    </span>
+
+                    <span class="font-medium text-slate-700 dark:text-slate-200">Online Bank Transfer</span>
+                    <span class="mx-1 text-slate-400 dark:text-slate-500">→</span>
+
+                    <span class="inline-flex items-center gap-2">
+                        <span class="inline-flex items-center rounded-md bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-700
+                         dark:bg-white/10 dark:text-slate-200">ex</span>
+                        <span class="font-medium">222217462</span>
+                    </span>
+                </div>
+
+                <div class="flex items-center gap-6">
+                    <span class="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-4 py-1.5 text-sm font-medium text-emerald-700
+                       dark:bg-emerald-500/10 dark:text-emerald-200">
+                        <span class="h-2 w-2 rounded-full bg-emerald-600 dark:bg-emerald-300"></span>
+                        Done
+                    </span>
+
+                    <div class="min-w-[150px] text-right text-sm font-semibold text-slate-900 dark:text-white">
+                        + 12 500.00 USD
+                    </div>
+                </div>
+            </div>
+        </button>
+
+        <!-- Mobile card for record 2 -->
+        <button type="button" class="group w-full rounded-md border border-slate-200 bg-white p-4 text-left shadow-sm outline-none
+                   hover:border-slate-300 hover:shadow-md focus:ring-2 focus:ring-blue-500/40
+                   dark:border-slate-800 dark:bg-black dark:hover:border-slate-700 md:hidden" data-open-tx
+            data-tx-id="TX-495701549111" data-tx-type="Deposit" data-tx-time="23 Dec, 18:21"
+            data-tx-invoice="495701549111" data-tx-amount="12 500.00 NGN" data-tx-status="Done" data-tx-from="901•••878"
+            data-tx-from-label="Online Bank Transfer" data-tx-to="222217462" data-tx-to-label="ex"
+            data-tx-commission="0.00 NGN" data-tx-gross="12 500.00 NGN">
+            <div class="flex items-start justify-between gap-3">
+                <div class="flex items-start gap-3">
+                    <span class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700
+                       dark:border-slate-800 dark:bg-black dark:text-slate-100">
+                        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M12 8v8" />
+                            <path d="M8.5 12 12 15.5 15.5 12" />
+                        </svg>
+                    </span>
+                    <div class="leading-tight">
+                        <p class="text-sm font-semibold text-slate-900 dark:text-white">Deposit</p>
+                        <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">18:21</p>
+                        <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Invoice ID 495701549111</p>
+                    </div>
+                </div>
+
+                <div class="text-right">
+                    <p class="text-sm font-semibold text-slate-900 dark:text-white">+ 12 500.00 NGN</p>
+                    <span class="mt-2 inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700
+                       dark:bg-emerald-500/10 dark:text-emerald-200">
+                        <span class="h-2 w-2 rounded-full bg-emerald-600 dark:bg-emerald-300"></span>
+                        Done
+                    </span>
+                </div>
+            </div>
+
+            <div class="mt-4 flex items-center gap-3 text-sm text-slate-600 dark:text-slate-300">
+                <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-slate-600
+                     dark:bg-white/10 dark:text-slate-200">
+                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="6" width="18" height="12" rx="2" />
+                        <path d="M7 10h6" />
+                        <path d="M7 14h10" />
+                    </svg>
+                </span>
+
+                <div class="min-w-0 flex-1">
+                    <p class="truncate text-sm font-medium text-slate-700 dark:text-slate-200">Online Bank Transfer</p>
+                    <div class="mt-1 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                        <span class="truncate">Bank Tr...</span>
+                        <span class="text-slate-400 dark:text-slate-500">→</span>
+                        <span class="inline-flex items-center gap-2">
+                            <span class="inline-flex items-center rounded-md bg-slate-100 px-2 py-0.5 text-[11px] font-semibold text-slate-700
+                           dark:bg-white/10 dark:text-slate-200">ex</span>
+                            <span class="font-medium">222217462</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </button>
+    </div>
+</section>
+
+<!-- ===================== DETAILS MODAL ===================== -->
+<div id="txModal" class="fixed inset-0 z-[999] hidden" aria-hidden="true">
+
+    <!-- Backdrop -->
+    <div id="txModalBackdrop" class="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-150"></div>
+
+    <!-- Panel wrapper -->
+    <div class="relative flex min-h-full items-center justify-center p-4">
+        <div id="txModalPanel" class="w-full max-w-[640px] rounded-md border border-slate-200 bg-white shadow-2xl
+                dark:border-slate-800 dark:bg-black" role="dialog" aria-modal="true" aria-labelledby="txModalTitle">
+
+            <!-- Header -->
+            <div
+                class="flex items-start justify-between gap-4 border-b border-slate-200 px-6 py-5 dark:border-slate-800">
+                <div class="flex items-start gap-3">
+                    <span class="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700
+                       dark:border-slate-800 dark:bg-black dark:text-slate-100">
+                        <!-- deposit icon -->
+                        <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M12 8v8" />
+                            <path d="M8.5 12 12 15.5 15.5 12" />
+                        </svg>
+                    </span>
+
+                    <div>
+                        <h3 id="txModalTitle" class="text-2xl font-semibold text-slate-900 dark:text-white">
+                            <span id="mType">Deposit</span>
+                        </h3>
+                        <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">
+                            Invoice ID <span id="mInvoice">—</span>
+                        </p>
+                    </div>
+                </div>
+
+                <button id="txModalClose"
+                    class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700
+                       hover:bg-slate-100 dark:border-slate-800 dark:bg-black dark:text-slate-100 dark:hover:bg-white/10" aria-label="Close">
+                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 6l12 12M18 6 6 18" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Body -->
+            <div class="px-6 py-6">
+                <div class="flex items-start justify-between gap-4">
+                    <div>
+                        <p class="text-2xl font-semibold text-slate-900 dark:text-white">
+                            <span id="mAmount">—</span>
+                        </p>
+                    </div>
+
+                    <span class="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-4 py-1.5 text-sm font-medium text-emerald-700
+                       dark:bg-emerald-500/10 dark:text-emerald-200">
+                        <span class="h-2 w-2 rounded-full bg-emerald-600 dark:bg-emerald-300"></span>
+                        <span id="mStatus">Done</span>
+                    </span>
+                </div>
+
+                <!-- timeline -->
+                <div class="mt-6 space-y-4">
+                    <!-- ITEM 1 -->
+                    <div class="relative flex gap-3">
+                        <!-- vertical connector line (runs through all items) -->
+                        <span
+                            class="absolute left-3 top-6 hidden h-[calc(100%-1.25rem)] w-px bg-slate-200 dark:bg-slate-800 sm:block"></span>
+
+                        <span class="relative mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-600 text-white
+                 dark:bg-slate-300 dark:text-black">
+                            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="3"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 6 9 17l-5-5" />
+                            </svg>
+                        </span>
+
+                        <div>
+                            <p class="text-sm font-semibold text-slate-900 dark:text-white">Created</p>
+                            <p class="mt-0.5 text-xs text-slate-500 dark:text-slate-400" id="mCreatedAt">24 Dec, 10:58
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 2 -->
+                    <div class="relative flex gap-3">
+                        <!-- connector line segment -->
+                        <span
+                            class="absolute left-3 -top-4 hidden h-6 w-px bg-slate-200 dark:bg-slate-800 sm:block"></span>
+                        <span
+                            class="absolute left-3 top-6 hidden h-[calc(100%-1.25rem)] w-px bg-slate-200 dark:bg-slate-800 sm:block"></span>
+
+                        <span class="relative mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-600 text-white
+                 dark:bg-slate-300 dark:text-black">
+                            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="3"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 6 9 17l-5-5" />
+                            </svg>
+                        </span>
+
+                        <div>
+                            <p class="text-sm font-semibold text-slate-900 dark:text-white">Processed by provider</p>
+                            <p class="mt-0.5 text-xs text-slate-500 dark:text-slate-400" id="mProcessedAt">24 Dec, 10:59
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 3 -->
+                    <div class="relative flex gap-3">
+                        <!-- connector line segment (top only, last item) -->
+                        <span
+                            class="absolute left-3 -top-4 hidden h-6 w-px bg-slate-200 dark:bg-slate-800 sm:block"></span>
+
+                        <span class="relative mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-600 text-white
+                 dark:bg-slate-300 dark:text-black">
+                            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="3"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 6 9 17l-5-5" />
+                            </svg>
+                        </span>
+
+                        <div>
+                            <p class="text-sm font-semibold text-slate-900 dark:text-white">Received by TradingNintyOne
+                            </p>
+                            <p class="mt-0.5 text-xs text-slate-500 dark:text-slate-400" id="mReceivedAt">24 Dec, 10:59
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 border-t border-slate-200 pt-5 dark:border-slate-800">
+                    <div class="flex items-center justify-between gap-3 text-sm">
+                        <div class="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+                            <span>From</span>
+
+                            <span
+                                class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-black text-brandYellow dark:bg-white dark:text-black">
+                                <!-- bank icon (yellow) -->
+                                <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 10h16" />
+                                    <path d="M6 10v8M10 10v8M14 10v8M18 10v8" />
+                                    <path d="M3 10 12 4l9 6" />
+                                    <path d="M4 18h16" />
+                                </svg>
+                            </span>
+
+                            <span class="font-medium text-slate-900 dark:text-white" id="mFrom">901•••878</span>
+                        </div>
+
+                        <span class="text-slate-400 dark:text-slate-500">→</span>
+
+                        <div class="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+                            <span>To</span>
+                            <span class="inline-flex items-center rounded-md bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-700
+                           dark:bg-white/10 dark:text-slate-200" id="mToLabel">ex</span>
+                            <span class="font-medium text-slate-900 dark:text-white" id="mTo">222217462</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-5 grid gap-2 text-sm">
+                        <div class="flex items-center justify-between">
+                            <span class="text-slate-500 dark:text-slate-400">Commission</span>
+                            <span class="font-semibold text-slate-900 dark:text-white" id="mCommission">0.00 NGN</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-slate-500 dark:text-slate-400">Gross Amount</span>
+                            <span class="font-semibold text-slate-900 dark:text-white" id="mGross">50 000.00 NGN</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 flex justify-end">
+                        <a href="#" class="inline-flex items-center gap-2 rounded-md bg-slate-100 px-4 py-2 text-sm font-medium text-slate-800 hover:bg-slate-200
+                      dark:bg-white/10 dark:text-slate-100 dark:hover:bg-white/15">
+                            <span class="inline-flex h-5 w-5 items-center justify-center">
+                                <!-- question icon -->
+                                <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 21a9 9 0 1 0-9-9" />
+                                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 2-3 4" />
+                                    <circle cx="12" cy="17" r="0.7" />
+                                </svg>
+                            </span>
+                            Get support
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        (() => {
+            const modal = document.getElementById("txModal");
+            const backdrop = document.getElementById("txModalBackdrop");
+            const closeBtn = document.getElementById("txModalClose");
+
+            const els = {
+                type: document.getElementById("mType"),
+                invoice: document.getElementById("mInvoice"),
+                amount: document.getElementById("mAmount"),
+                status: document.getElementById("mStatus"),
+                from: document.getElementById("mFrom"),
+                to: document.getElementById("mTo"),
+                toLabel: document.getElementById("mToLabel"),
+                commission: document.getElementById("mCommission"),
+                gross: document.getElementById("mGross"),
+                createdAt: document.getElementById("mCreatedAt"),
+                processedAt: document.getElementById("mProcessedAt"),
+                receivedAt: document.getElementById("mReceivedAt"),
+            };
+
+            const open = (btn) => {
+                // Fill modal from data-attributes
+                els.type.textContent = btn.dataset.txType || "Deposit";
+                els.invoice.textContent = btn.dataset.txInvoice || "—";
+                els.amount.textContent = btn.dataset.txAmount || "—";
+                els.status.textContent = btn.dataset.txStatus || "Done";
+                els.from.textContent = btn.dataset.txFrom || "—";
+                els.to.textContent = btn.dataset.txTo || "—";
+                els.toLabel.textContent = btn.dataset.txToLabel || "ex";
+                els.commission.textContent = btn.dataset.txCommission || "—";
+                els.gross.textContent = btn.dataset.txGross || "—";
+
+                // Simple timeline timestamps (you can bind real ones later)
+                const created = btn.dataset.txTime || "—";
+                els.createdAt.textContent = created;
+                els.processedAt.textContent = created.replace("10:58", "10:59"); // demo
+                els.receivedAt.textContent = created.replace("10:58", "10:59");  // demo
+
+                // Show modal
+                modal.classList.remove("hidden");
+                requestAnimationFrame(() => {
+                    backdrop.classList.remove("opacity-0");
+                    backdrop.classList.add("opacity-100");
+                });
+
+                document.body.style.overflow = "hidden";
+            };
+
+            const close = () => {
+                backdrop.classList.remove("opacity-100");
+                backdrop.classList.add("opacity-0");
+
+                setTimeout(() => {
+                    modal.classList.add("hidden");
+                    document.body.style.overflow = "";
+                }, 150);
+            };
+
+            document.querySelectorAll("[data-open-tx]").forEach(btn => {
+                btn.addEventListener("click", () => open(btn));
+            });
+
+            closeBtn?.addEventListener("click", close);
+            backdrop?.addEventListener("click", close);
+
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape" && !modal.classList.contains("hidden")) close();
+            });
+        })();
+    </script>
+}

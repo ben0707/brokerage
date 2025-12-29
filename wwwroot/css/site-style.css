@@ -1,0 +1,11 @@
+.funding-fade-card {
+        opacity: 0;
+        transform: translateY(18px);
+        will-change: opacity, transform;
+    }
+
+    /* When visible on screen */
+    .funding-fade-card.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }

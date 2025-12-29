@@ -1,0 +1,136 @@
+@{
+    Layout = "~/Views/Shared/_Account.cshtml";
+    ViewData["Title"] = "Confirm withdrawal";
+}
+
+<div class="mx-auto w-full max-w-6xl px-3 sm:px-6 lg:px-0">
+
+    <!-- ================= HEADER ================= -->
+    <div class="mb-8">
+        <h1 class="text-4xl font-semibold tracking-tight text-slate-900 dark:text-white">
+            Withdrawal
+        </h1>
+
+        <a href="javascript:history.back()"
+            class="mt-2 inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:underline dark:text-blue-400">
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 18l-6-6 6-6" />
+            </svg>
+            Back
+        </a>
+    </div>
+
+    <div class="grid grid-cols-1 gap-10 lg:grid-cols-12">
+
+        <!-- ================= LEFT ================= -->
+        <div class="lg:col-span-8">
+            <div class="max-w-3xl">
+
+                <!-- Row -->
+                <div class="flex items-center justify-between border-b border-slate-200 py-4 dark:border-slate-800">
+                    <span class="text-sm text-slate-500 dark:text-slate-400">Payment method</span>
+                    <span class="flex items-center gap-2 font-medium text-slate-900 dark:text-white">
+                        <span class="flex h-6 w-6 items-center justify-center rounded-full bg-black">
+                            <img src="/assets/payments/bank-generic.png" alt="Bank"
+                                class="h-3.5 w-3.5 object-contain" />
+                        </span>
+                        Online Bank
+                    </span>
+                </div>
+
+                <div class="flex items-center justify-between border-b border-slate-200 py-4 dark:border-slate-800">
+                    <span class="text-sm text-slate-500 dark:text-slate-400">To account</span>
+                    <span class="font-medium text-slate-900 dark:text-white">
+                        9010297878
+                    </span>
+                </div>
+
+                <div class="flex items-center justify-between border-b border-slate-200 py-4 dark:border-slate-800">
+                    <span class="text-sm text-slate-500 dark:text-slate-400">From account</span>
+                    <span class="flex items-center gap-2 font-medium text-slate-900 dark:text-white">
+                        <span class="rounded bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-700
+                                     dark:bg-slate-800 dark:text-slate-200">
+                            MT5
+                        </span>
+                        222217462
+                    </span>
+                </div>
+
+                <div class="flex items-center justify-between border-b border-slate-200 py-4 dark:border-slate-800">
+                    <span class="text-sm text-slate-500 dark:text-slate-400">Amount</span>
+                    <span class="font-medium text-slate-900 dark:text-white">
+                        5,000 NGN
+                    </span>
+                </div>
+
+                <div class="flex items-center justify-between border-b border-slate-200 py-4 dark:border-slate-800">
+                    <span class="text-sm text-slate-500 dark:text-slate-400">Commission</span>
+                    <span class="font-medium text-slate-900 dark:text-white">
+                        No commission
+                    </span>
+                </div>
+
+                <!-- TOTAL -->
+                <div class="mt-6 flex items-center justify-between rounded-md bg-slate-50 px-5 py-5
+                            dark:bg-slate-900/40">
+                    <span class="text-sm text-slate-600 dark:text-slate-300">
+                        To be withdrawn
+                    </span>
+                    <span class="text-3xl font-semibold text-slate-900 dark:text-white">
+                        5&nbsp;000&nbsp;<span class="text-xl">NGN</span>
+                    </span>
+                </div>
+
+                <!-- CONFIRM -->
+                <div class="mt-8">
+                    <button id="confirmBtn" class="inline-flex h-12 items-center justify-center rounded-md
+                                   bg-[#F9D900] px-10 text-sm font-semibold text-black
+                                   hover:bg-yellow-300 transition">
+                        Confirm
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= RIGHT ================= -->
+        <aside class="lg:col-span-4">
+            <div class="hidden lg:block border-l border-slate-200 pl-10 dark:border-slate-800">
+                <h3 class="text-xl font-semibold text-slate-900 dark:text-white">Terms</h3>
+
+                <div class="mt-4 space-y-3 text-sm">
+                    <div class="flex items-center justify-between">
+                        <span class="text-slate-500 dark:text-slate-400">Average payment time</span>
+                        <span class="font-medium text-slate-900 dark:text-white">1 hour</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-slate-500 dark:text-slate-400">Fee</span>
+                        <span class="font-medium text-slate-900 dark:text-white">0%</span>
+                    </div>
+                </div>
+
+                <h3 class="mt-10 text-xl font-semibold text-slate-900 dark:text-white">FAQ</h3>
+                <div class="mt-4 space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                    <a href="#" class="block hover:text-slate-900 dark:hover:text-white">
+                        How do I verify my account?
+                    </a>
+                    <a href="#" class="block hover:text-slate-900 dark:hover:text-white">
+                        How do I verify my online banking account?
+                    </a>
+                    <a href="#" class="block hover:text-slate-900 dark:hover:text-white">
+                        How do I withdraw with online bank?
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+</div>
+
+<script>
+    document.getElementById("confirmBtn")?.addEventListener("click", () => {
+        // Wire this to your MVC POST / API
+        // Example: POST /withdraw/confirm
+        alert("Withdrawal submitted successfully");
+    });
+</script>

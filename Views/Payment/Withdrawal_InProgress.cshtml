@@ -1,0 +1,143 @@
+@{
+    ViewData["Title"] = "Withdrawal status";
+    Layout = "~/Views/Shared/_Account.cshtml";
+}
+
+<div class="mx-auto w-full max-w-4xl">
+    <div class="flex min-h-[calc(100vh-64px-96px)] flex-col items-center justify-center px-4 py-10 text-center">
+
+        <!-- FIXED ICON -->
+        <div class="mb-4 flex h-12 w-12 items-center justify-center">
+            <svg viewBox="0 0 24 24" class="h-10 w-10 text-slate-500 dark:text-slate-300" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+
+                <!-- Rocket body -->
+                <path d="M12 2c4.5 2 7 6.5 7 11.5V16l-4 1-3-3-3 3-4-1v-2.5C5 8.5 7.5 4 12 2z" />
+
+                <!-- Window -->
+                <circle cx="12" cy="9" r="1.5" />
+
+                <!-- Flame -->
+                <path d="M12 17c-1 1.5-1.5 2.5-1.5 3.5h3c0-1-.5-2-1.5-3.5z" />
+            </svg>
+        </div>
+
+        <h1 class="text-3xl font-semibold tracking-tight text-slate-900 dark:text-white">
+            Your withdrawal is in progress
+        </h1>
+
+        <p class="mt-2 max-w-xl text-sm text-slate-600 dark:text-slate-300">
+            Once the provider accepts it, you'll be able to track its status on the Transaction History page
+        </p>
+
+        <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
+            <a href="/Payments/History"
+                class="inline-flex items-center justify-center rounded-md bg-brandYellow px-8 py-3 text-sm font-semibold text-black hover:brightness-95 focus:outline-none focus:ring-2 focus:ring-brandYellow/50">
+                View History
+            </a>
+
+
+        </div>
+
+        <!-- Divider line -->
+        <div class="mt-10 h-px w-full max-w-xl bg-slate-200 dark:bg-slate-800"></div>
+
+        <!-- Feedback block -->
+        <div class="mt-10 w-full max-w-xl">
+            <h2 class="text-lg font-semibold text-slate-900 dark:text-white">
+                How was your payment experience?
+            </h2>
+
+            <!-- Stars -->
+            <div class="mt-5 flex items-center justify-center gap-4" id="ratingStars" role="radiogroup"
+                aria-label="Payment experience rating">
+                @for (var i = 1; i <= 5; i++)
+                {
+                    <button type="button"
+                        class="starBtn group inline-flex h-10 w-10 items-center justify-center rounded-md focus:outline-none focus:ring-2 focus:ring-brandYellow/40"
+                        data-value="@i" aria-label="Rate @i star@(i > 1 ? "s" : "")">
+                        <svg viewBox="0 0 24 24" class="h-7 w-7 transition-transform duration-150 group-hover:scale-110"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M12 2l3 7 7 .6-5.4 4.6 1.8 7-6.4-3.9L5.6 21l1.8-7L2 9.6 9 9z" />
+                        </svg>
+                    </button>
+                }
+            </div>
+
+            <!-- Labels -->
+            <div class="mt-4 flex items-center justify-between text-sm text-slate-500 dark:text-slate-400">
+                <span>Very bad</span>
+                <span id="ratingLabel" class="text-slate-500 dark:text-slate-400"></span>
+                <span>Very good</span>
+            </div>
+
+            <!-- Thank you state -->
+            <div id="thankYou" class="mt-10 hidden flex-col items-center justify-center gap-3">
+                <p class="text-lg font-semibold text-slate-900 dark:text-white">Thank you for your feedback</p>
+                <svg viewBox="0 0 24 24" class="h-10 w-10 text-emerald-500" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M14 9V5a3 3 0 0 0-3-3l-2 8H4a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h4l4.3 4.3a2 2 0 0 0 3.4-1.4V9z" />
+                    <path d="M22 10a4 4 0 0 1 0 8" />
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        (function () {
+            const root = document.getElementById("ratingStars");
+            if (!root) return;
+
+            const stars = Array.from(root.querySelectorAll(".starBtn"));
+            const label = document.getElementById("ratingLabel");
+            const thankYou = document.getElementById("thankYou");
+
+            let selected = 0;
+
+            function paint(val) {
+                stars.forEach(btn => {
+                    const v = parseInt(btn.dataset.value, 10);
+                    const svg = btn.querySelector("svg");
+
+                    if (v <= val) {
+                        svg.setAttribute("fill", "#F9D900"); // brandYellow
+                        svg.setAttribute("stroke", "#F9D900");
+                    } else {
+                        svg.setAttribute("fill", "none");
+                        svg.setAttribute("stroke", "currentColor");
+                    }
+                });
+
+                if (label) {
+                    if (val === 0) label.textContent = "";
+                    else if (val <= 2) label.textContent = "Bad";
+                    else if (val === 3) label.textContent = "Okay";
+                    else label.textContent = "Very good";
+                }
+            }
+
+            paint(0);
+
+            stars.forEach(btn => {
+                btn.addEventListener("mouseenter", () => paint(parseInt(btn.dataset.value, 10)));
+                btn.addEventListener("mouseleave", () => paint(selected));
+            });
+
+            stars.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    selected = parseInt(btn.dataset.value, 10);
+                    paint(selected);
+
+                    if (thankYou) {
+                        thankYou.classList.remove("hidden");
+                        thankYou.classList.add("flex");
+                    }
+                });
+            });
+        })();
+    </script>
+}

@@ -1,0 +1,116 @@
+@model LoginViewModel
+@{
+    ViewData["Title"] = "Sign in";
+    Layout = "~/Views/Shared/_Auth.cshtml";
+}
+
+<div class="w-full max-w-md space-y-8">
+
+    <!-- HEADER -->
+    <header class="space-y-2 text-center">
+        <p class="text-xs font-medium uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+            Welcome back
+        </p>
+        <h1 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-50">
+            Sign in to your account
+        </h1>
+        <p class="text-sm text-slate-600 dark:text-slate-400">
+            Access your trading dashboard, wallets and account settings.
+        </p>
+    </header>
+
+    <!-- VALIDATION SUMMARY (SERVER-SIDE) -->
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="rounded-lg border border-red-500/40 bg-red-500/5 px-3 py-2 text-xs text-red-400">
+            @Html.ValidationSummary(true, "", new { @class = "text-xs" })
+        </div>
+    }
+
+    <!-- LOGIN FORM -->
+    <form id="login-form" asp-action="Login" asp-controller="Account" method="post" class="space-y-6">
+
+        @Html.AntiForgeryToken()
+
+        <!-- EMAIL -->
+        <div class="space-y-1.5">
+            <label for="email-input" class="block text-sm font-medium text-slate-800 dark:text-slate-100">
+                Email address
+            </label>
+
+            <input id="email-input" name="Email" type="email" autocomplete="email" class="w-full rounded-xl border px-3 py-2 text-sm
+                          placeholder:text-slate-400
+                          focus:outline-none focus:ring-1
+                          bg-white text-slate-900
+                          dark:bg-slate-900 dark:text-slate-50 dark:placeholder:text-slate-500
+                          dark:border-slate-700" placeholder="you@example.com" />
+
+            <p id="email-hint" class="mt-1 hidden text-[11px] text-slate-400"></p>
+            @Html.ValidationMessage("Email", "", new { @class = "text-[11px] text-red-400" })
+        </div>
+
+        <!-- PASSWORD -->
+        <div class="space-y-1.5">
+            <label for="password-input" class="block text-sm font-medium text-slate-800 dark:text-slate-100">
+                Password
+            </label>
+
+            <div class="relative">
+                <input id="password-input" name="Password" type="password" autocomplete="current-password" class="w-full rounded-xl border px-3 py-2 pr-16 text-sm
+                              placeholder:text-slate-400
+                              focus:outline-none focus:ring-1
+                              bg-white text-slate-900
+                              dark:bg-slate-900 dark:text-slate-50 dark:placeholder:text-slate-500
+                              dark:border-slate-700" placeholder="Enter your password" />
+
+                <button type="button" id="password-toggle" class="absolute inset-y-0 right-2 my-auto inline-flex items-center px-2 text-[11px]
+                               font-medium text-slate-500 hover:text-slate-700
+                               dark:text-slate-400 dark:hover:text-slate-200">
+                    Show
+                </button>
+            </div>
+
+            @Html.ValidationMessage("Password", "", new { @class = "text-[11px] text-red-400" })
+        </div>
+
+        <!-- REMEMBER + FORGOT -->
+        <div class="flex items-center justify-between text-xs text-slate-600 dark:text-slate-400">
+            <label class="inline-flex items-center gap-2">
+                <input type="checkbox" name="RememberMe" class="h-3.5 w-3.5 rounded border-slate-400 text-sky-500 focus:ring-sky-500
+                              dark:border-slate-600 dark:bg-slate-900" />
+                <span>Remember me</span>
+            </label>
+
+            <a asp-action="ForgotPassword" asp-controller="Account"
+                class="font-medium text-sky-600 hover:text-sky-500 dark:text-sky-400 dark:hover:text-sky-300">
+                Forgot password?
+            </a>
+        </div>
+
+        <!-- SUBMIT -->
+        <div>
+            <button id="login-submit" type="submit" class="flex w-full items-center justify-center rounded-xl bg-slate-900 px-4 py-2.5
+                           text-sm font-semibold text-white shadow-sm
+                           hover:bg-black
+                           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
+                           focus-visible:ring-slate-900 focus-visible:ring-offset-slate-100
+                           dark:bg-white dark:text-black dark:hover:bg-slate-200 dark:focus-visible:ring-white">
+                Sign in
+            </button>
+        </div>
+
+        <!-- FOOTER LINKS -->
+        <p class="text-center text-xs text-slate-500 dark:text-slate-400">
+            Don’t have an account?
+            <a asp-action="Register" asp-controller="Account"
+                class="font-medium text-sky-600 hover:text-sky-500 dark:text-sky-400 dark:hover:text-sky-300">
+                Create an account
+            </a>
+        </p>
+    </form>
+
+</div>
+
+@section Scripts {
+    <script src="~/js/login.js"></script>
+}

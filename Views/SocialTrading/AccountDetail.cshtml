@@ -1,0 +1,217 @@
+@{
+    ViewData["Title"] = "Strategy details";
+    Layout = "~/Views/Shared/_Account.cshtml";
+}
+
+<section class="mx-auto w-full max-w-6xl">
+
+    <!-- TOP BAR -->
+    <div class="flex items-center justify-between text-sm">
+        <a href="/CopyTrading"
+            class="flex items-center gap-2 text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">
+            ← Back
+        </a>
+
+        <div class="flex items-center gap-5 text-slate-600 dark:text-slate-400">
+            <button class="hover:text-black dark:hover:text-white">☆ Favorite</button>
+            <button class="hover:text-black dark:hover:text-white">⤴ Share</button>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <div class="mt-5 grid grid-cols-1 gap-6 lg:grid-cols-[1fr_340px]">
+
+        <!-- STRATEGY SUMMARY -->
+        <div class="rounded-xl border border-slate-200 bg-gradient-to-r from-slate-50 to-white p-6
+                    dark:border-slate-800 dark:from-slate-900 dark:to-black">
+
+            <div class="flex items-center gap-4">
+                <img src="~/img/strategies/strategy1.png" class="h-14 w-14 rounded-xl" />
+                <div>
+                    <h1 class="text-2xl font-semibold text-slate-950 dark:text-white">
+                        Nghiện Forex X4 HDPE
+                    </h1>
+                    <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">
+                        THI QUYNH TRANG NGUYEN · Reliability 35
+                    </p>
+                </div>
+            </div>
+
+            <!-- METRICS -->
+            <div class="mt-6 grid grid-cols-3 gap-6 text-sm">
+                <div>
+                    <p class="text-slate-500 dark:text-slate-400">Return 3M</p>
+                    <p class="mt-1 text-xl font-semibold text-slate-950 dark:text-white">
+                        ↑ 1071.55%
+                    </p>
+                </div>
+                <div>
+                    <p class="text-slate-500 dark:text-slate-400">Max drawdown</p>
+                    <p class="mt-1 text-xl font-semibold text-slate-950 dark:text-white">
+                        −78.17%
+                    </p>
+                </div>
+                <div>
+                    <p class="text-slate-500 dark:text-slate-400">Active investors</p>
+                    <p class="mt-1 text-xl font-semibold text-slate-950 dark:text-white">
+                        7064
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- INVEST PANEL -->
+        <div class="rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-black">
+            <h3 class="font-semibold text-slate-950 dark:text-white">
+                Create investment
+            </h3>
+
+            <div class="mt-4">
+                <input type="number" placeholder="0.00" class="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm
+                              dark:border-slate-700 dark:bg-black dark:text-white" />
+                <p class="mt-2 text-xs text-slate-500">
+                    From <strong>10 USD</strong> to <strong>160 110 USD</strong>
+                </p>
+            </div>
+
+            <button
+                class="mt-4 w-full rounded-md bg-[#f9d900] py-2.5 text-sm font-semibold text-black hover:brightness-95">
+                Invest
+            </button>
+        </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="mt-8 flex gap-6 border-b border-slate-200 text-sm dark:border-slate-800">
+        <button class="exTab is-active">Overview</button>
+        <button class="exTab">Orders</button>
+        <button class="exTab">Strategy news</button>
+        <button class="exTab">About Strategy Provider</button>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-[1fr_300px]">
+
+        <!-- PERFORMANCE -->
+        <div>
+            <h3 class="font-semibold text-slate-950 dark:text-white">
+                Strategy performance
+            </h3>
+
+            <div class="mt-3 flex gap-2 text-xs">
+                <button class="exPill is-active">Return</button>
+                <button class="exPill">Equity</button>
+            </div>
+
+            <div class="mt-5">
+                <p class="text-3xl font-semibold text-slate-950 dark:text-white">
+                    1071.55%
+                </p>
+                <p class="mt-1 text-xs text-slate-500">
+                    Sep 27, 2025 – Dec 27, 2025
+                </p>
+            </div>
+
+            <!-- CHART PLACEHOLDER -->
+            <div class="mt-6 h-[260px] rounded-lg border border-dashed border-slate-300
+                        dark:border-slate-700 flex items-center justify-center text-slate-400">
+                Performance chart (Return)
+            </div>
+        </div>
+
+        <!-- RIGHT SUMMARY -->
+        <aside class="space-y-8">
+
+            <div>
+                <h4 class="flex items-center gap-1 font-semibold text-slate-950 dark:text-white">
+                    Summary of terms
+                </h4>
+
+                <dl class="mt-3 space-y-2 text-sm">
+                    <div class="flex justify-between">
+                        <dt class="text-slate-500">Minimum investment</dt>
+                        <dd class="font-medium">10 USD</dd>
+                    </div>
+                    <div class="flex justify-between">
+                        <dt class="text-slate-500">Performance fee</dt>
+                        <dd class="font-medium">30%</dd>
+                    </div>
+                    <div class="flex justify-between">
+                        <dt class="text-slate-500">Billing period</dt>
+                        <dd class="font-medium">35 days remaining</dd>
+                    </div>
+                </dl>
+            </div>
+
+            <div>
+                <h4 class="font-semibold text-slate-950 dark:text-white">
+                    Strategy provider
+                </h4>
+
+                <p class="mt-2 text-sm font-medium">
+                    THI QUYNH TRANG NGUYEN
+                </p>
+                <p class="text-xs text-slate-500">
+                    🇻🇳 From Vietnam · Identity verified
+                </p>
+
+                <p class="mt-3 text-xs text-slate-600 dark:text-slate-400">
+                    Low trading reliability level · Score 35
+                </p>
+
+                <a href="#" class="mt-3 inline-block text-sm font-medium text-slate-900 underline dark:text-white">
+                    Full profile →
+                </a>
+            </div>
+
+        </aside>
+    </div>
+</section>
+
+<style>
+    .exTab {
+        padding-bottom: 10px;
+        font-weight: 600;
+        color: #64748b;
+        border-bottom: 2px solid transparent;
+    }
+
+    .exTab.is-active {
+        color: #0f172a;
+        border-color: #0f172a;
+    }
+
+    .dark .exTab {
+        color: #94a3b8;
+    }
+
+    .dark .exTab.is-active {
+        color: #fff;
+        border-color: #fff;
+    }
+
+    .exPill {
+        height: 28px;
+        padding: 0 12px;
+        border-radius: 999px;
+        border: 1px solid #e5e7eb;
+        background: #f8fafc;
+        font-weight: 600;
+    }
+
+    .exPill.is-active {
+        background: #000;
+        color: #fff;
+    }
+
+    .dark .exPill {
+        background: #0b0b0b;
+        border-color: #1f2937;
+        color: #e5e7eb;
+    }
+
+    .dark .exPill.is-active {
+        background: #fff;
+        color: #000;
+    }
+</style>

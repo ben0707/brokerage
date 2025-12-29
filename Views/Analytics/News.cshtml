@@ -1,0 +1,337 @@
+@{
+    ViewData["Title"] = "Market News";
+    Layout = "~/Views/Shared/_Account.cshtml";
+}
+
+<section class="mx-auto w-full max-w-6xl">
+    <!-- Header -->
+    <div class="flex items-center justify-between gap-4">
+        <h1 class="text-[44px] font-semibold leading-tight tracking-[-0.02em] text-slate-950 dark:text-white">
+            Market News
+        </h1>
+    </div>
+
+    <!-- Tags row (flat, like Exness) -->
+    <div class="mt-6 flex flex-wrap items-center gap-2">
+        <span class="mr-1 text-sm font-medium text-slate-700 dark:text-slate-200">Tags:</span>
+
+        <button type="button" class="exTag is-active" data-tag="EURUSD">EURUSD</button>
+        <button type="button" class="exTag" data-tag="GBPUSD">GBPUSD</button>
+        <button type="button" class="exTag" data-tag="USDJPY">USDJPY</button>
+        <button type="button" class="exTag" data-tag="AUDUSD">AUDUSD</button>
+        <button type="button" class="exTag" data-tag="USDCAD">USDCAD</button>
+        <button type="button" class="exTag" data-tag="DollarIndex">DollarIndex</button>
+    </div>
+
+    <!-- Divider -->
+    <div class="mt-5 border-t border-slate-900/10 dark:border-white/10"></div>
+
+    <!-- List (Exness-like: flat rows + thin separators, no cards) -->
+    <div class="mt-2 divide-y divide-slate-900/10 dark:divide-white/10" id="newsList">
+
+        <!-- ITEM -->
+        <article class="exNewsItem py-5" data-tags="USDJPY DollarIndex">
+            <button type="button" class="w-full text-left" data-news-toggle>
+                <div class="flex items-start justify-between gap-6">
+                    <div class="min-w-0">
+                        <h3 class="text-base font-semibold text-slate-950 dark:text-white">
+                            Japan Jobs / Applicants Ratio meets expectations (1.18) in November »
+                        </h3>
+
+                        <div class="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
+                            <span class="font-semibold text-slate-900 dark:text-white">FXStreet Team</span>
+                            <span class="text-slate-500 dark:text-slate-400">|</span>
+                            <span class="text-slate-600 dark:text-slate-300">Dec 25, 23:30 GMT</span>
+                        </div>
+
+                        <p class="mt-2 text-sm text-slate-700 dark:text-slate-200">
+                            Japan Jobs / Applicants Ratio meets expectations (1.18) in November
+                        </p>
+
+                        <div class="mt-3 flex flex-wrap gap-2">
+                            <span class="exPill">JAPAN</span>
+                            <span class="exPill">EMPLOYMENT</span>
+                        </div>
+                    </div>
+
+                    <span class="mt-1 shrink-0 text-slate-500 dark:text-slate-300 transition-transform" data-news-caret>
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </span>
+                </div>
+            </button>
+
+            <!-- Expanded (Exness-like: inline area, no bordered card) -->
+            <div class="mt-4 hidden" data-news-panel>
+                <div class="space-y-2 text-sm leading-relaxed text-slate-700 dark:text-slate-200">
+                    <p>
+                        Replace this with your fetched article body/summary. Keep it short like Exness.
+                    </p>
+                    <div class="flex flex-wrap items-center gap-3 pt-2">
+                        <a href="#"
+                            class="text-sm font-semibold text-slate-950 underline underline-offset-4 hover:opacity-80 dark:text-white">
+                            Read more
+                        </a>
+                        <span class="text-slate-400 dark:text-slate-500">•</span>
+                        <button type="button"
+                            class="inline-flex h-9 items-center justify-center rounded-lg bg-brandYellow px-4 text-sm font-semibold text-black hover:brightness-95 active:brightness-90">
+                            Trade
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- ITEM -->
+        <article class="exNewsItem py-5" data-tags="USDJPY">
+            <button type="button" class="w-full text-left" data-news-toggle>
+                <div class="flex items-start justify-between gap-6">
+                    <div class="min-w-0">
+                        <h3 class="text-base font-semibold text-slate-950 dark:text-white">
+                            Japan Tokyo Consumer Price Index (YoY) dipped from previous 2.7% to 2% in December »
+                        </h3>
+
+                        <div class="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
+                            <span class="font-semibold text-slate-900 dark:text-white">FXStreet Team</span>
+                            <span class="text-slate-500 dark:text-slate-400">|</span>
+                            <span class="text-slate-600 dark:text-slate-300">Dec 25, 23:30 GMT</span>
+                        </div>
+
+                        <p class="mt-2 text-sm text-slate-700 dark:text-slate-200">
+                            Japan Tokyo Consumer Price Index (YoY) dipped from previous 2.7% to 2% in December
+                        </p>
+
+                        <div class="mt-3 flex flex-wrap gap-2">
+                            <span class="exPill">CPI</span>
+                            <span class="exPill">JAPAN</span>
+                        </div>
+                    </div>
+
+                    <span class="mt-1 shrink-0 text-slate-500 dark:text-slate-300 transition-transform" data-news-caret>
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </span>
+                </div>
+            </button>
+
+            <div class="mt-4 hidden" data-news-panel>
+                <div class="space-y-2 text-sm leading-relaxed text-slate-700 dark:text-slate-200">
+                    <p>Replace with your fetched summary/body.</p>
+                    <div class="flex flex-wrap items-center gap-3 pt-2">
+                        <a href="#"
+                            class="text-sm font-semibold text-slate-950 underline underline-offset-4 hover:opacity-80 dark:text-white">
+                            Read more
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- ITEM -->
+        <article class="exNewsItem py-5" data-tags="USDJPY">
+            <button type="button" class="w-full text-left" data-news-toggle>
+                <div class="flex items-start justify-between gap-6">
+                    <div class="min-w-0">
+                        <h3 class="text-base font-semibold text-slate-950 dark:text-white">
+                            Japan Tokyo CPI ex Fresh Food (YoY) came in at 2.3% below forecasts (2.5%) in December »
+                        </h3>
+
+                        <div class="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
+                            <span class="font-semibold text-slate-900 dark:text-white">FXStreet Team</span>
+                            <span class="text-slate-500 dark:text-slate-400">|</span>
+                            <span class="text-slate-600 dark:text-slate-300">Dec 25, 23:30 GMT</span>
+                        </div>
+
+                        <p class="mt-2 text-sm text-slate-700 dark:text-slate-200">
+                            Japan Tokyo CPI ex Fresh Food (YoY) came in at 2.3% below forecasts (2.5%) in December
+                        </p>
+
+                        <div class="mt-3 flex flex-wrap gap-2">
+                            <span class="exPill">CPI</span>
+                            <span class="exPill">JAPAN</span>
+                        </div>
+                    </div>
+
+                    <span class="mt-1 shrink-0 text-slate-500 dark:text-slate-300 transition-transform" data-news-caret>
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </span>
+                </div>
+            </button>
+
+            <div class="mt-4 hidden" data-news-panel>
+                <div class="space-y-2 text-sm leading-relaxed text-slate-700 dark:text-slate-200">
+                    <p>Replace with your fetched summary/body.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- ITEM -->
+        <article class="exNewsItem py-5" data-tags="USDJPY">
+            <button type="button" class="w-full text-left" data-news-toggle>
+                <div class="flex items-start justify-between gap-6">
+                    <div class="min-w-0">
+                        <h3 class="text-base font-semibold text-slate-950 dark:text-white">
+                            Japan Construction Orders (YoY) climbed from previous -10.1% to 9.5% in November »
+                        </h3>
+
+                        <div class="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
+                            <span class="font-semibold text-slate-900 dark:text-white">FXStreet Team</span>
+                            <span class="text-slate-500 dark:text-slate-400">|</span>
+                            <span class="text-slate-600 dark:text-slate-300">Dec 25, 05:04 GMT</span>
+                        </div>
+
+                        <p class="mt-2 text-sm text-slate-700 dark:text-slate-200">
+                            Japan Construction Orders (YoY) climbed from previous -10.1% to 9.5% in November
+                        </p>
+
+                        <div class="mt-3 flex flex-wrap gap-2">
+                            <span class="exPill">MANUFACTURING</span>
+                            <span class="exPill">JAPAN</span>
+                        </div>
+                    </div>
+
+                    <span class="mt-1 shrink-0 text-slate-500 dark:text-slate-300 transition-transform" data-news-caret>
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </span>
+                </div>
+            </button>
+
+            <div class="mt-4 hidden" data-news-panel>
+                <div class="space-y-2 text-sm leading-relaxed text-slate-700 dark:text-slate-200">
+                    <p>Replace with your fetched summary/body.</p>
+                </div>
+            </div>
+        </article>
+
+    </div>
+
+    <!-- Empty -->
+    <div id="newsEmpty" class="hidden mt-10 py-12 text-center">
+        <p class="text-sm font-semibold text-slate-950 dark:text-white">No news for this tag</p>
+        <p class="mt-1 text-sm text-slate-700 dark:text-slate-200">Try another tag.</p>
+    </div>
+</section>
+
+<style>
+    /* Exness-like: flat chips */
+    .exTag {
+        height: 28px;
+        padding: 0 12px;
+        border-radius: 9999px;
+        border: 1px solid rgba(15, 23, 42, .14);
+        background: #fff;
+        color: #0f172a;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 28px;
+        transition: filter .15s ease, box-shadow .15s ease;
+    }
+
+    .dark .exTag {
+        border-color: rgba(255, 255, 255, .14);
+        background: #000;
+        color: #fff;
+    }
+
+    .exTag:hover {
+        filter: brightness(.98);
+    }
+
+    .exTag.is-active {
+        border-color: rgba(15, 23, 42, .28);
+        box-shadow: 0 0 0 3px rgba(249, 217, 0, .22);
+    }
+
+    .dark .exTag.is-active {
+        border-color: rgba(255, 255, 255, .26);
+        box-shadow: 0 0 0 3px rgba(249, 217, 0, .16);
+    }
+
+    /* Exness-like small grey labels */
+    .exPill {
+        display: inline-flex;
+        align-items: center;
+        height: 18px;
+        padding: 0 8px;
+        border-radius: 6px;
+        border: 1px solid rgba(15, 23, 42, .10);
+        background: rgba(15, 23, 42, .04);
+        font-size: 10px;
+        font-weight: 800;
+        color: #475569;
+        letter-spacing: .02em;
+    }
+
+    .dark .exPill {
+        border-color: rgba(255, 255, 255, .10);
+        background: rgba(255, 255, 255, .06);
+        color: rgba(226, 232, 240, .92);
+    }
+</style>
+
+@section Scripts {
+    <script>
+        // ===== Exness-like: one open at a time, flat list =====
+        const tagButtons = Array.from(document.querySelectorAll(".exTag"));
+        const items = Array.from(document.querySelectorAll(".exNewsItem"));
+        const empty = document.getElementById("newsEmpty");
+
+        let activeTag = tagButtons.find(b => b.classList.contains("is-active"))?.dataset.tag || "EURUSD";
+
+        function applyTagFilter() {
+            let shown = 0;
+            items.forEach(it => {
+                const tags = (it.getAttribute("data-tags") || "").split(/\s+/).filter(Boolean);
+                const ok = tags.includes(activeTag);
+                it.classList.toggle("hidden", !ok);
+                if (ok) shown++;
+            });
+            empty.classList.toggle("hidden", shown !== 0);
+
+            // close any open panels after filtering
+            closeAllPanels();
+        }
+
+        tagButtons.forEach(btn => {
+            btn.addEventListener("click", () => {
+                activeTag = btn.dataset.tag;
+                tagButtons.forEach(b => b.classList.toggle("is-active", b === btn));
+                applyTagFilter();
+            });
+        });
+
+        function closeAllPanels() {
+            document.querySelectorAll("[data-news-panel]").forEach(p => p.classList.add("hidden"));
+            document.querySelectorAll("[data-news-caret]").forEach(c => c.classList.remove("rotate-180"));
+        }
+
+        document.querySelectorAll("[data-news-toggle]").forEach(toggle => {
+            toggle.addEventListener("click", () => {
+                const item = toggle.closest(".exNewsItem");
+                const panel = item?.querySelector("[data-news-panel]");
+                const caret = item?.querySelector("[data-news-caret]");
+                if (!panel) return;
+
+                const willOpen = panel.classList.contains("hidden");
+                closeAllPanels();
+                if (willOpen) {
+                    panel.classList.remove("hidden");
+                    caret?.classList.add("rotate-180");
+                }
+            });
+        });
+
+        // init
+        applyTagFilter();
+    </script>
+}

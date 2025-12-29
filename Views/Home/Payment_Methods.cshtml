@@ -1,0 +1,851 @@
+@{
+    ViewData["Title"] = "Home Page";
+    ViewBag.Title = "Home";
+}
+
+<!-- ============ FULL-WIDTH DARK TICKER BAR ============ -->
+<section id="contest-ticker" class="w-full bg-[#0d0d0d] dark:bg-black">
+    <div class="tradingview-widget-container w-full">
+        <div class="tradingview-widget-container__widget"></div>
+
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+            async>
+                {
+                    "symbols": [
+                        { "proName": "FOREXCOM:SPXUSD", "title": "S&P 500 Index" },
+                        { "proName": "FOREXCOM:NSXUSD", "title": "US 100 Cash CFD" },
+                        { "proName": "FX_IDC:EURUSD", "title": "EUR/USD" },
+                        { "proName": "BITSTAMP:BTCUSD", "title": "Bitcoin" },
+                        { "proName": "BITSTAMP:ETHUSD", "title": "Ethereum" },
+                        { "proName": "OANDA:XAUUSD", "title": "Gold" },
+                        { "proName": "NASDAQ:NVDA", "title": "NVIDIA" },
+                        { "proName": "BINANCE:XRPUSDT", "title": "XRP" },
+                        { "proName": "OANDA:USDJPY", "title": "USD/JPY" }
+                    ],
+                        "colorTheme": "dark",
+                            "locale": "en",
+                                "displayMode": "regular",
+                                    "isTransparent": false,
+                                        "showSymbolLogo": true,
+                                            "largeChartUrl": ""
+                }
+            </script>
+    </div>
+</section>
+
+
+<!-- ========================================== -->
+<!--        FAST & SECURE DEPOSITS SECTION      -->
+<!-- ========================================== -->
+<section id="deposits" class="py-20 bg-white dark:bg-black">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+
+        <!-- Heading -->
+        <h2 class="text-4xl font-bold text-slate-900 dark:text-white">
+            Fast & Secure
+        </h2>
+        <h3 class="mt-1 text-4xl font-bold text-brandGold">
+            Deposits & Withdrawals
+        </h3>
+
+        <p class="mt-4 max-w-2xl mx-auto text-slate-600 dark:text-slate-400 text-sm md:text-base">
+            Experience seamless deposits and withdrawals with our wide range of secure payment options.
+            Trade with confidence knowing your funds are protected.
+        </p>
+
+        <!-- Tabs -->
+        <div class="mt-8 inline-flex bg-slate-100 dark:bg-slate-800 p-1 rounded-full">
+            <button id="tabDeposit"
+                class="px-6 py-2 rounded-full text-sm font-semibold bg-black text-white dark:bg-white dark:text-black transition">
+                Deposit
+            </button>
+            <button id="tabWithdraw"
+                class="px-6 py-2 rounded-full text-sm font-semibold text-slate-600 dark:text-slate-300 transition">
+                Withdrawal
+            </button>
+        </div>
+
+        <!-- ===================== -->
+        <!--       DEPOSIT CARDS   -->
+        <!-- ===================== -->
+        <div id="depositCards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+
+            <!-- CARD TEMPLATE -->
+            <!-- Repeat for each deposit method -->
+            <!-- CARD 1: LOCAL BANK -->
+            <article
+                class="flex min-h-[260px] flex-col justify-between rounded-xl border border-slate-200 bg-white 
+                       px-5 py-6 text-left shadow-sm hover:shadow-md transition dark:border-slate-800 dark:bg-slate-900">
+
+                <!-- ICON + TITLE -->
+                <div class="flex items-center gap-3">
+                    <div class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 
+                               dark:bg-slate-800">
+                        <!-- ICON -->
+                        <!-- <img src="@Url.Content("~/img/localbank.svg")" class="h-5 w-5" /> -->
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-semibold text-slate-900 dark:text-white">Local Bank Transfer</h4>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400">3 USD minimum</p>
+                    </div>
+                </div>
+
+                <!-- DETAILS -->
+                <div class="mt-5 border-l border-slate-200 pl-4 dark:border-slate-700">
+                    <dl class="space-y-2 text-[11px]">
+                        <div class="flex justify-between">
+                            <dt class="text-slate-500 dark:text-slate-400">Commission</dt>
+                            <dd class="font-semibold text-emerald-500">Free</dd>
+                        </div>
+                        <div class="flex justify-between">
+                            <dt class="text-slate-500 dark:text-slate-400">Processing Time</dt>
+                            <dd class="font-semibold text-slate-900 dark:text-white">⚡ Instant</dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <!-- BUTTON -->
+                <button class="mt-6 rounded-lg bg-brandGold px-4 py-2.5 text-xs font-semibold text-slate-900 
+                           hover:bg-amber-300 transition">
+                    Make a Deposit
+                </button>
+            </article>
+
+            <!-- CARD 2: CRYPTO C2B -->
+            <article
+                class="flex min-h-[260px] flex-col justify-between rounded-xl border border-slate-200 bg-white 
+                       px-5 py-6 text-left shadow-sm hover:shadow-md transition dark:border-slate-800 dark:bg-slate-900">
+
+                <div class="flex items-center gap-3">
+                    <div class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800">
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-semibold text-slate-900 dark:text-white">Crypto (C2B)</h4>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400">15 USD minimum</p>
+                    </div>
+                </div>
+
+                <div class="mt-5 border-l border-slate-200 pl-4 dark:border-slate-700">
+                    <dl class="space-y-2 text-[11px]">
+                        <div class="flex justify-between">
+                            <dt class="text-slate-500 dark:text-slate-400">Commission</dt>
+                            <dd class="font-semibold text-emerald-500">Free</dd>
+                        </div>
+                        <div class="flex justify-between">
+                            <dt class="text-slate-500 dark:text-slate-400">Processing Time</dt>
+                            <dd class="font-semibold dark:text-white text-slate-900">5–30 minutes</dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <button
+                    class="mt-6 rounded-lg bg-brandGold px-4 py-2.5 text-xs font-semibold text-slate-900 hover:bg-amber-300 transition">
+                    Make a Deposit
+                </button>
+            </article>
+
+            <!-- CARD 3: BITCOIN -->
+            <article
+                class="flex min-h-[260px] flex-col justify-between rounded-xl border border-slate-200 bg-white 
+                       px-5 py-6 text-left shadow-sm hover:shadow-md transition dark:border-slate-800 dark:bg-slate-900">
+
+                <div class="flex items-center gap-3">
+                    <div class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800">
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-semibold text-slate-900 dark:text-white">Bitcoin</h4>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400">25 USD minimum</p>
+                    </div>
+                </div>
+
+                <div class="mt-5 border-l border-slate-200 pl-4 dark:border-slate-700">
+                    <dl class="space-y-2 text-[11px]">
+                        <div class="flex justify-between">
+                            <dt class="text-slate-500 dark:text-slate-400">Commission</dt>
+                            <dd class="font-semibold text-emerald-500">Free</dd>
+                        </div>
+                        <div class="flex justify-between">
+                            <dt class="text-slate-500 dark:text-slate-400">Processing Time</dt>
+                            <dd class="font-semibold text-slate-900 dark:text-white">10–60 minutes</dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <button
+                    class="mt-6 rounded-lg bg-brandGold px-4 py-2.5 text-xs font-semibold text-slate-900 hover:bg-amber-300 transition">
+                    Make a Deposit
+                </button>
+            </article>
+
+            <!-- CARD 4: DOGE -->
+            <article
+                class="flex min-h-[260px] flex-col justify-between rounded-xl border border-slate-200 bg-white 
+                       px-5 py-6 text-left shadow-sm hover:shadow-md transition dark:border-slate-800 dark:bg-slate-900">
+
+                <div class="flex items-center gap-3">
+                    <div class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800">
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-semibold text-slate-900 dark:text-white">Dogecoin</h4>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400">25 USD minimum</p>
+                    </div>
+                </div>
+
+                <div class="mt-5 border-l border-slate-200 pl-4 dark:border-slate-700">
+                    <dl class="space-y-2 text-[11px]">
+                        <div class="flex justify-between">
+                            <dt class="text-slate-500 dark:text-slate-400">Commission</dt>
+                            <dd class="font-semibold text-emerald-500">Free</dd>
+                        </div>
+                        <div class="flex justify-between">
+                            <dt class="text-slate-500 dark:text-slate-400">Processing Time</dt>
+                            <dd class="font-semibold text-slate-900 dark:text-white">5–30 minutes</dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <button
+                    class="mt-6 rounded-lg bg-brandGold px-4 py-2.5 text-xs font-semibold text-slate-900 hover:bg-amber-300 transition">
+                    Make a Deposit
+                </button>
+            </article>
+        </div>
+
+        <!-- ======================= -->
+        <!--    WITHDRAWAL CARDS     -->
+        <!-- ======================= -->
+        <div id="withdrawCards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10 hidden">
+
+            <!-- CARD 1: Local Bank Transfer -->
+            <article class="flex min-h-[260px] flex-col justify-between rounded-xl border border-slate-200 bg-white 
+               px-5 py-6 text-left shadow-sm hover:shadow-md transition 
+               dark:border-slate-800 dark:bg-slate-900">
+
+                <div class="flex items-center gap-3">
+                    <div class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 
+                       dark:bg-slate-800">
+                        <!-- ICON -->
+                        <!-- <img src="@Url.Content("~/img/localbank.svg")" class="h-5 w-5" /> -->
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-semibold text-slate-900 dark:text-white">Local Bank Transfer</h4>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400">10 USD minimum</p>
+                    </div>
+                </div>
+
+                <div class="mt-5 border-l border-slate-200 pl-4 dark:border-slate-700">
+                    <dl class="space-y-2 text-[11px]">
+                        <div class="flex justify-between">
+                            <dt class="text-slate-500 dark:text-slate-400">Commission</dt>
+                            <dd class="font-semibold text-emerald-500">Free</dd>
+                        </div>
+                        <div class="flex justify-between">
+                            <dt class="text-slate-500 dark:text-slate-400">Processing Time</dt>
+                            <dd class="font-semibold text-slate-900 dark:text-white">30–180 minutes</dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <button class="mt-6 rounded-lg bg-brandGold px-4 py-2.5 text-xs font-semibold text-slate-900 
+                   hover:bg-amber-300 transition">
+                    Make a Withdrawal
+                </button>
+            </article>
+
+            <!-- CARD 2: Crypto (C2B) -->
+            <article class="flex min-h-[260px] flex-col justify-between rounded-xl border border-slate-200 bg-white 
+               px-5 py-6 text-left shadow-sm hover:shadow-md transition 
+               dark:border-slate-800 dark:bg-slate-900">
+
+                <div class="flex items-center gap-3">
+                    <div class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800">
+                        <!-- ICON -->
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-semibold text-slate-900 dark:text-white">Crypto (C2B)</h4>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400">25 USD minimum</p>
+                    </div>
+                </div>
+
+                <div class="mt-5 border-l border-slate-200 pl-4 dark:border-slate-700">
+                    <dl class="space-y-2 text-[11px]">
+                        <div class="flex justify-between">
+                            <dt class="text-slate-500 dark:text-slate-400">Commission</dt>
+                            <dd class="font-semibold text-emerald-500">Free</dd>
+                        </div>
+                        <div class="flex justify-between">
+                            <dt class="text-slate-500 dark:text-slate-400">Processing Time</dt>
+                            <dd class="font-semibold text-slate-900 dark:text-white">5–60 minutes</dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <button class="mt-6 rounded-lg bg-brandGold px-4 py-2.5 text-xs font-semibold text-slate-900 
+                   hover:bg-amber-300 transition">
+                    Make a Withdrawal
+                </button>
+            </article>
+
+            <!-- CARD 3: Bitcoin -->
+            <article class="flex min-h-[260px] flex-col justify-between rounded-xl border border-slate-200 bg-white 
+               px-5 py-6 text-left shadow-sm hover:shadow-md transition 
+               dark:border-slate-800 dark:bg-slate-900">
+
+                <div class="flex items-center gap-3">
+                    <div class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800">
+                        <!-- ICON -->
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-semibold text-slate-900 dark:text-white">Bitcoin</h4>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400">25 USD minimum</p>
+                    </div>
+                </div>
+
+                <div class="mt-5 border-l border-slate-200 pl-4 dark:border-slate-700">
+                    <dl class="space-y-2 text-[11px]">
+                        <div class="flex justify-between">
+                            <dt class="text-slate-500 dark:text-slate-400">Commission</dt>
+                            <dd class="font-semibold text-emerald-500">Free</dd>
+                        </div>
+                        <div class="flex justify-between">
+                            <dt class="text-slate-500 dark:text-slate-400">Processing Time</dt>
+                            <dd class="font-semibold text-slate-900 dark:text-white">10–60 minutes</dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <button class="mt-6 rounded-lg bg-brandGold px-4 py-2.5 text-xs font-semibold text-slate-900 
+                   hover:bg-amber-300 transition">
+                    Make a Withdrawal
+                </button>
+            </article>
+
+            <!-- CARD 4: USDT TRC20 -->
+            <article class="flex min-h-[260px] flex-col justify-between rounded-xl border border-slate-200 bg-white 
+               px-5 py-6 text-left shadow-sm hover:shadow-md transition 
+               dark:border-slate-800 dark:bg-slate-900">
+
+                <div class="flex items-center gap-3">
+                    <div class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800">
+                        <!-- ICON -->
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-semibold text-slate-900 dark:text-white">USDT (TRC20)</h4>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400">25 USD minimum</p>
+                    </div>
+                </div>
+
+                <div class="mt-5 border-l border-slate-200 pl-4 dark:border-slate-700">
+                    <dl class="space-y-2 text-[11px]">
+                        <div class="flex justify-between">
+                            <dt class="text-slate-500 dark:text-slate-400">Commission</dt>
+                            <dd class="font-semibold text-emerald-500">Free</dd>
+                        </div>
+                        <div class="flex justify-between">
+                            <dt class="text-slate-500 dark:text-slate-400">Processing Time</dt>
+                            <dd class="font-semibold text-slate-900 dark:text-white">3–30 minutes</dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <button class="mt-6 rounded-lg bg-brandGold px-4 py-2.5 text-xs font-semibold text-slate-900 
+                   hover:bg-amber-300 transition">
+                    Make a Withdrawal
+                </button>
+            </article>
+        </div>
+
+        <!-- Show More -->
+        <button
+            class="mt-10 inline-flex items-center gap-1 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brandGold transition">
+            Show More
+            <span class="text-xs">↓</span>
+        </button>
+
+    </div>
+</section>
+<!-- =============================== -->
+<!-- WHY CHOOSE OUR FUNDING OPTIONS -->
+<!-- =============================== -->
+<section id="funding-options" class="bg-slate-50 py-20 dark:bg-black">
+    <div class="mx-auto max-w-6xl px-4 text-center">
+
+        <!-- Heading -->
+        <h2 class="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl dark:text-white">
+            Why Choose <span class="text-brandGold">Our Funding Options</span>
+        </h2>
+        <p class="mx-auto mt-3 max-w-2xl text-sm md:text-base text-slate-600 dark:text-slate-300">
+            Experience hassle-free deposits and withdrawals with our secure and flexible payment solutions.
+        </p>
+
+        <!-- Cards grid -->
+        <div class="mt-14 grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
+
+            <!-- Card 1 -->
+            <article class="funding-fade-card group rounded-xl border border-slate-200 bg-white px-7 py-9 text-center
+                       shadow-sm transition-all duration-300 ease-out
+                       hover:-translate-y-1.5 hover:shadow-lg hover:border-slate-300
+                       dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-600">
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full 
+                           bg-slate-100 transition-colors duration-300
+                           group-hover:bg-slate-900 group-hover:text-white
+                           dark:bg-slate-800 dark:group-hover:bg-slate-100 dark:group-hover:text-slate-900">
+                    <!-- ICON: CLOCK (replace with your own if needed) -->
+                    <svg class="h-6 w-6 text-slate-700 dark:text-slate-300" fill="none" stroke="currentColor"
+                        stroke-width="2" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="9" />
+                        <path d="M12 7v5l3 2" />
+                    </svg>
+                </div>
+
+                <h3 class="mt-4 text-base font-semibold text-slate-900 dark:text-white">
+                    Instant Processing
+                </h3>
+                <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                    Most deposits are processed instantly, allowing you to start trading immediately.
+                </p>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="funding-fade-card group rounded-xl border border-slate-200 bg-white px-7 py-9 text-center
+                       shadow-sm transition-all duration-300 ease-out
+                       hover:-translate-y-1.5 hover:shadow-lg hover:border-slate-300
+                       dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-600">
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full 
+                           bg-slate-100 transition-colors duration-300
+                           group-hover:bg-slate-900 group-hover:text-white
+                           dark:bg-slate-800 dark:group-hover:bg-slate-100 dark:group-hover:text-slate-900">
+                    <!-- ICON: SHIELD -->
+                    <svg class="h-6 w-6 text-slate-700 dark:text-slate-300" fill="none" stroke="currentColor"
+                        stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M12 3 6 5v6c0 4 2.7 6.7 6 8 3.3-1.3 6-4 6-8V5l-6-2z" />
+                        <path d="m9.5 12 1.7 1.7L15 10" />
+                    </svg>
+                </div>
+
+                <h3 class="mt-4 text-base font-semibold text-slate-900 dark:text-white">
+                    Bank-Level Security
+                </h3>
+                <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                    Your funds are protected with advanced encryption and secure payment gateways.
+                </p>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="funding-fade-card group rounded-xl border border-slate-200 bg-white px-7 py-9 text-center
+                       shadow-sm transition-all duration-300 ease-out
+                       hover:-translate-y-1.5 hover:shadow-lg hover:border-slate-300
+                       dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-600">
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full 
+                           bg-slate-100 transition-colors duration-300
+                           group-hover:bg-slate-900 group-hover:text-white
+                           dark:bg-slate-800 dark:group-hover:bg-slate-100 dark:group-hover:text-slate-900">
+                    <!-- ICON: DOLLAR -->
+                    <svg class="h-6 w-6 text-slate-700 dark:text-slate-300" fill="none" stroke="currentColor"
+                        stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M12 3v18" />
+                        <path
+                            d="M16 7.5c0-1.7-1.7-3-4-3-2.1 0-4 1.1-4 3 0 5 8 2.5 8 7.5 0 1.9-1.9 3-4 3-2.3 0-4-1.3-4-3" />
+                    </svg>
+                </div>
+
+                <h3 class="mt-4 text-base font-semibold text-slate-900 dark:text-white">
+                    No Hidden Fees
+                </h3>
+                <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                    We don’t charge extra fees for funding or withdrawals. What you see is what you get.
+                </p>
+            </article>
+
+            <!-- Card 4 -->
+            <article class="funding-fade-card group rounded-xl border border-slate-200 bg-white px-7 py-9 text-center
+                       shadow-sm transition-all duration-300 ease-out
+                       hover:-translate-y-1.5 hover:shadow-lg hover:border-slate-300
+                       dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-600">
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full 
+                           bg-slate-100 transition-colors duration-300
+                           group-hover:bg-slate-900 group-hover:text-white
+                           dark:bg-slate-800 dark:group-hover:bg-slate-100 dark:group-hover:text-slate-900">
+                    <!-- ICON: FLEX / CHECK -->
+                    <svg class="h-6 w-6 text-slate-700 dark:text-slate-300" fill="none" stroke="currentColor"
+                        stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M5 13 9 17 19 7" />
+                    </svg>
+                </div>
+
+                <h3 class="mt-4 text-base font-semibold text-slate-900 dark:text-white">
+                    Flexible Options
+                </h3>
+                <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                    Choose from bank transfers, cards, e-wallets, and crypto to fund and withdraw with ease.
+                </p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================================ -->
+<!-- HOW TO DEPOSIT & WITHDRAW       -->
+<!-- ================================ -->
+<section id="how-to-fund" class="bg-slate-50 py-20 dark:bg-black">
+    <div class="mx-auto max-w-6xl px-4">
+        <!-- Heading -->
+        <div class="text-center">
+            <h2 class="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl dark:text-white">
+                How to Deposit <span class="text-brandGold">&amp; Withdraw</span>
+            </h2>
+            <p class="mt-3 text-sm md:text-base text-slate-600 dark:text-slate-300">
+                Simple step-by-step guide to managing your funds.
+            </p>
+        </div>
+
+        <!-- Two-column cards -->
+        <div class="mt-10 grid gap-6 md:mt-14 md:grid-cols-2">
+            <!-- How to Deposit -->
+            <article class="rounded-2xl border border-slate-200 bg-white px-7 py-8 shadow-sm
+                       dark:border-slate-800 dark:bg-slate-900">
+                <h3 class="text-lg font-semibold text-slate-900 dark:text-white">
+                    How to Deposit
+                </h3>
+
+                <ol class="mt-6 space-y-4 text-sm md:text-[15px]">
+                    <!-- Step 1 -->
+                    <li class="flex gap-4">
+                        <div class="mt-0.5 flex h-7 w-7 items-center justify-center rounded-full
+                                   bg-black text-xs font-semibold text-white
+                                   dark:bg-white dark:text-slate-900">
+                            1
+                        </div>
+                        <div>
+                            <p class="font-semibold text-slate-900 dark:text-white">
+                                Login to Your Account
+                            </p>
+                            <p class="mt-1 text-slate-600 dark:text-slate-400">
+                                Access your EMAR Markets client portal with your credentials.
+                            </p>
+                        </div>
+                    </li>
+
+                    <!-- Step 2 -->
+                    <li class="flex gap-4">
+                        <div class="mt-0.5 flex h-7 w-7 items-center justify-center rounded-full
+                                   bg-black text-xs font-semibold text-white
+                                   dark:bg-white dark:text-slate-900">
+                            2
+                        </div>
+                        <div>
+                            <p class="font-semibold text-slate-900 dark:text-white">
+                                Navigate to Deposit
+                            </p>
+                            <p class="mt-1 text-slate-600 dark:text-slate-400">
+                                Click on the <span class="font-medium">“Deposit”</span> button in your account
+                                dashboard.
+                            </p>
+                        </div>
+                    </li>
+
+                    <!-- Step 3 -->
+                    <li class="flex gap-4">
+                        <div class="mt-0.5 flex h-7 w-7 items-center justify-center rounded-full
+                                   bg-black text-xs font-semibold text-white
+                                   dark:bg-white dark:text-slate-900">
+                            3
+                        </div>
+                        <div>
+                            <p class="font-semibold text-slate-900 dark:text-white">
+                                Select Payment Method
+                            </p>
+                            <p class="mt-1 text-slate-600 dark:text-slate-400">
+                                Choose your preferred payment option and set the deposit amount.
+                            </p>
+                        </div>
+                    </li>
+
+                    <!-- Step 4 -->
+                    <li class="flex gap-4">
+                        <div class="mt-0.5 flex h-7 w-7 items-center justify-center rounded-full
+                                   bg-black text-xs font-semibold text-white
+                                   dark:bg-white dark:text-slate-900">
+                            4
+                        </div>
+                        <div>
+                            <p class="font-semibold text-slate-900 dark:text-white">
+                                Complete Transaction
+                            </p>
+                            <p class="mt-1 text-slate-600 dark:text-slate-400">
+                                Follow the payment instructions. Your account will be credited instantly
+                                or within the specified time.
+                            </p>
+                        </div>
+                    </li>
+                </ol>
+            </article>
+
+            <!-- How to Withdraw -->
+            <article class="rounded-2xl border border-slate-200 bg-white px-7 py-8 shadow-sm
+                       dark:border-slate-800 dark:bg-slate-900">
+                <h3 class="text-lg font-semibold text-slate-900 dark:text-white">
+                    How to Withdraw
+                </h3>
+
+                <ol class="mt-6 space-y-4 text-sm md:text-[15px]">
+                    <!-- Step 1 -->
+                    <li class="flex gap-4">
+                        <div class="mt-0.5 flex h-7 w-7 items-center justify-center rounded-full
+                                   bg-black text-xs font-semibold text-white
+                                   dark:bg-white dark:text-slate-900">
+                            1
+                        </div>
+                        <div>
+                            <p class="font-semibold text-slate-900 dark:text-white">
+                                Verify Your Account
+                            </p>
+                            <p class="mt-1 text-slate-600 dark:text-slate-400">
+                                Ensure your profile is fully verified with the required documents.
+                            </p>
+                        </div>
+                    </li>
+
+                    <!-- Step 2 -->
+                    <li class="flex gap-4">
+                        <div class="mt-0.5 flex h-7 w-7 items-center justify-center rounded-full
+                                   bg-black text-xs font-semibold text-white
+                                   dark:bg-white dark:text-slate-900">
+                            2
+                        </div>
+                        <div>
+                            <p class="font-semibold text-slate-900 dark:text-white">
+                                Navigate to Withdrawal
+                            </p>
+                            <p class="mt-1 text-slate-600 dark:text-slate-400">
+                                Click on the <span class="font-medium">“Withdrawal”</span> button in your dashboard.
+                            </p>
+                        </div>
+                    </li>
+
+                    <!-- Step 3 -->
+                    <li class="flex gap-4">
+                        <div class="mt-0.5 flex h-7 w-7 items-center justify-center rounded-full
+                                   bg-black text-xs font-semibold text-white
+                                   dark:bg-white dark:text-slate-900">
+                            3
+                        </div>
+                        <div>
+                            <p class="font-semibold text-slate-900 dark:text-white">
+                                Enter Withdrawal Details
+                            </p>
+                            <p class="mt-1 text-slate-600 dark:text-slate-400">
+                                Select payment method, specify the amount, and provide required details.
+                            </p>
+                        </div>
+                    </li>
+
+                    <!-- Step 4 -->
+                    <li class="flex gap-4">
+                        <div class="mt-0.5 flex h-7 w-7 items-center justify-center rounded-full
+                                   bg-black text-xs font-semibold text-white
+                                   dark:bg-white dark:text-slate-900">
+                            4
+                        </div>
+                        <div>
+                            <p class="font-semibold text-slate-900 dark:text-white">
+                                Confirm &amp; Wait
+                            </p>
+                            <p class="mt-1 text-slate-600 dark:text-slate-400">
+                                Submit your request. Funds are typically processed within 1–3 hours
+                                during business days.
+                            </p>
+                        </div>
+                    </li>
+                </ol>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- ============ FAQ SECTION ============ -->
+<section id="faq" class="bg-slate-50 py-14 md:py-20 dark:bg-black">
+    <div class="mx-auto max-w-6xl px-4">
+        <div class="grid gap-10 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] md:items-start">
+            <!-- LEFT: TITLE + COPY -->
+            <div>
+                <h2 class="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl dark:text-slate-50">
+                    Frequently<br />
+                    Asked Questions
+                </h2>
+                <p class="mt-4 max-w-sm text-sm text-slate-600 md:text-base dark:text-slate-300">
+                    Get answers to the most common questions about our trading services
+                    and platform features.
+                </p>
+
+                <button
+                    class="mt-8 inline-flex items-center rounded-2xl bg-black px-6 py-3 text-sm font-semibold text-white shadow-soft-card hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brandGold/70 dark:bg-brandGold dark:text-slate-900 dark:hover:bg-yellow-400">
+                    Help Centre
+                </button>
+            </div>
+
+            <!-- RIGHT: FAQ LIST -->
+            <div class="space-y-3">
+                <!-- Item template: each has button + panel -->
+                <div
+                    class="faq-item overflow-hidden rounded-3xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-[#050505]">
+                    <button type="button"
+                        class="faq-toggle flex w-full items-center justify-between px-6 py-4 text-left text-sm font-medium text-slate-900 md:px-8 md:py-5 md:text-base dark:text-slate-100"
+                        data-faq-target="faq-1">
+                        <span>What is EMAR Markets and why should I choose it?</span>
+                        <svg class="faq-chevron h-4 w-4 text-slate-400 transition-transform duration-200 dark:text-slate-300"
+                            viewBox="0 0 20 20" fill="none">
+                            <path d="M5 7l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div id="faq-1"
+                        class="faq-panel hidden border-t border-slate-100 px-6 pb-4 pt-2 text-xs text-slate-600 md:px-8 md:pb-5 md:pt-3 md:text-sm dark:border-slate-800 dark:text-slate-300">
+                        EMAR Markets (pty) Ltd is a regulated broker offering secure, low-latency trading
+                        on Forex, indices, commodities, and crypto pairs. You benefit from tight spreads,
+                        fast execution, responsive support, and a platform built for serious traders.
+                    </div>
+                </div>
+
+                <div
+                    class="faq-item overflow-hidden rounded-3xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-[#050505]">
+                    <button type="button"
+                        class="faq-toggle flex w-full items-center justify-between px-6 py-4 text-left text-sm font-medium text-slate-900 md:px-8 md:py-5 md:text-base dark:text-slate-100"
+                        data-faq-target="faq-2">
+                        <span>How do I get started with trading?</span>
+                        <svg class="faq-chevron h-4 w-4 text-slate-400 transition-transform duration-200 dark:text-slate-300"
+                            viewBox="0 0 20 20" fill="none">
+                            <path d="M5 7l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div id="faq-2"
+                        class="faq-panel hidden border-t border-slate-100 px-6 pb-4 pt-2 text-xs text-slate-600 md:px-8 md:pb-5 md:pt-3 md:text-sm dark:border-slate-800 dark:text-slate-300">
+                        Create an account, verify your profile, fund your wallet, then download our MT5
+                        or cTrader platform. Once your funds land, you can place your first trade in minutes.
+                    </div>
+                </div>
+
+                <div
+                    class="faq-item overflow-hidden rounded-3xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-[#050505]">
+                    <button type="button"
+                        class="faq-toggle flex w-full items-center justify-between px-6 py-4 text-left text-sm font-medium text-slate-900 md:px-8 md:py-5 md:text-base dark:text-slate-100"
+                        data-faq-target="faq-3">
+                        <span>What trading platforms do you offer?</span>
+                        <svg class="faq-chevron h-4 w-4 text-slate-400 transition-transform duration-200 dark:text-slate-300"
+                            viewBox="0 0 20 20" fill="none">
+                            <path d="M5 7l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div id="faq-3"
+                        class="faq-panel hidden border-t border-slate-100 px-6 pb-4 pt-2 text-xs text-slate-600 md:px-8 md:pb-5 md:pt-3 md:text-sm dark:border-slate-800 dark:text-slate-300">
+                        We provide MetaTrader 5 and cTrader across desktop, web and mobile, giving you
+                        flexibility to trade wherever you are with the tools you prefer.
+                    </div>
+                </div>
+
+                <div
+                    class="faq-item overflow-hidden rounded-3xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-[#050505]">
+                    <button type="button"
+                        class="faq-toggle flex w-full items-center justify-between px-6 py-4 text-left text-sm font-medium text-slate-900 md:px-8 md:py-5 md:text-base dark:text-slate-100"
+                        data-faq-target="faq-4">
+                        <span>Is my money safe with EMAR Markets?</span>
+                        <svg class="faq-chevron h-4 w-4 text-slate-400 transition-transform duration-200 dark:text-slate-300"
+                            viewBox="0 0 20 20" fill="none">
+                            <path d="M5 7l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div id="faq-4"
+                        class="faq-panel hidden border-t border-slate-100 px-6 pb-4 pt-2 text-xs text-slate-600 md:px-8 md:pb-5 md:pt-3 md:text-sm dark:border-slate-800 dark:text-slate-300">
+                        We are authorised by the FSCA and follow strict regulatory standards, including
+                        segregated client funds, risk management and ongoing compliance monitoring.
+                    </div>
+                </div>
+
+                <div
+                    class="faq-item overflow-hidden rounded-3xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-[#050505]">
+                    <button type="button"
+                        class="faq-toggle flex w-full items-center justify-between px-6 py-4 text-left text-sm font-medium text-slate-900 md:px-8 md:py-5 md:text-base dark:text-slate-100"
+                        data-faq-target="faq-5">
+                        <span>What is the minimum deposit required?</span>
+                        <svg class="faq-chevron h-4 w-4 text-slate-400 transition-transform duration-200 dark:text-slate-300"
+                            viewBox="0 0 20 20" fill="none">
+                            <path d="M5 7l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div id="faq-5"
+                        class="faq-panel hidden border-t border-slate-100 px-6 pb-4 pt-2 text-xs text-slate-600 md:px-8 md:pb-5 md:pt-3 md:text-sm dark:border-slate-800 dark:text-slate-300">
+                        Our minimum deposit is designed to be accessible for new traders, while still
+                        giving you enough margin to manage risk properly. Exact thresholds may vary by
+                        payment method and region.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+@section Scripts {
+    <script>
+        const tabDeposit = document.getElementById("tabDeposit");
+        const tabWithdraw = document.getElementById("tabWithdraw");
+        const depositCards = document.getElementById("depositCards");
+        const withdrawCards = document.getElementById("withdrawCards");
+
+        function setActiveTab(isDeposit) {
+            if (isDeposit) {
+                // Deposit active
+                tabDeposit.classList.add("bg-black", "text-white", "dark:bg-white", "dark:text-black");
+                tabWithdraw.classList.remove("bg-black", "text-white", "dark:bg-white", "dark:text-black");
+
+                depositCards.classList.remove("hidden");
+                withdrawCards.classList.add("hidden");
+            } else {
+                // Withdrawal active
+                tabWithdraw.classList.add("bg-black", "text-white", "dark:bg-white", "dark:text-black");
+                tabDeposit.classList.remove("bg-black", "text-white", "dark:bg-white", "dark:text-black");
+
+                withdrawCards.classList.remove("hidden");
+                depositCards.classList.add("hidden");
+            }
+        }
+
+        tabDeposit.addEventListener("click", () => setActiveTab(true));
+        tabWithdraw.addEventListener("click", () => setActiveTab(false));
+    </script>
+
+    <script>
+        // Simple IntersectionObserver to fade cards in on scroll
+        (function () {
+            const cards = document.querySelectorAll('.funding-fade-card');
+            if (!('IntersectionObserver' in window) || cards.length === 0) {
+                cards.forEach(c => c.classList.add('is-visible'));
+                return;
+            }
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                },
+                {
+                    root: null,
+                    threshold: 0.2
+                }
+            );
+
+            cards.forEach(card => observer.observe(card));
+        })();
+    </script>
+}

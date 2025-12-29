@@ -1,0 +1,177 @@
+@{
+    Layout = "~/Views/Shared/_Account.cshtml";
+    ViewData["Title"] = "Deposit";
+}
+
+<div class="mx-auto w-full max-w-5xl">
+    <!-- Header -->
+    <div class="mb-6">
+        <h1 class="text-3xl font-semibold tracking-tight text-slate-900 dark:text-white">Deposit</h1>
+        <a href="#" class="mt-1 inline-flex text-sm font-medium text-blue-600 hover:text-blue-700 hover:underline
+                  dark:text-blue-400 dark:hover:text-blue-300">
+            See all payment methods
+        </a>
+    </div>
+
+    <div class="grid gap-8 lg:grid-cols-[1fr_280px]">
+        <!-- LEFT: Form -->
+        <section class="space-y-6">
+
+            <!-- Payment method -->
+            <div>
+                <label class="mb-2 block text-xs font-medium text-slate-600 dark:text-slate-400">Payment method</label>
+
+                <button type="button" class="group flex w-full items-center justify-between rounded-md border border-slate-200 bg-white px-3 py-3 text-sm
+                               text-slate-900 shadow-sm transition
+                               hover:border-slate-300 hover:bg-slate-50
+                               focus:outline-none focus:ring-2 focus:ring-slate-900/10
+                               dark:border-slate-800 dark:bg-black dark:text-slate-50
+                               dark:hover:border-slate-700 dark:hover:bg-white/5 dark:focus:ring-white/10">
+                    <span class="flex min-w-0 items-center gap-3">
+                        <!-- Logo -->
+                        <span
+                            class="flex h-9 w-9 items-center justify-center rounded-full bg-black ring-1 ring-slate-200 dark:ring-slate-800">
+                            <img src="~/assets/payments/palmpay.svg" alt="PALMPAY" class="h-5 w-5 object-contain" />
+                        </span>
+                        <span class="truncate">9010297878, PALMPAY</span>
+                    </span>
+
+                    <!-- Caret -->
+                    <span
+                        class="text-slate-400 transition group-hover:text-slate-600 dark:text-slate-600 dark:group-hover:text-slate-400">
+                        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </span>
+                </button>
+            </div>
+
+            <!-- Warning box -->
+            <div class="rounded-md border border-amber-200 bg-amber-50 px-4 py-4 text-sm text-slate-800
+                        dark:border-amber-500/20 dark:bg-amber-500/10 dark:text-slate-100">
+                <p class="font-semibold">To avoid delays and losses of funds:</p>
+                <ul class="mt-2 list-disc space-y-1 pl-6 text-slate-700 dark:text-slate-200">
+                    <li>Start each new deposit in your Personal Area and do not reuse provided details for other
+                        transactions</li>
+                    <li>Make sure to transfer the exact amount you entered below</li>
+                </ul>
+            </div>
+
+            <!-- Bank transfer option -->
+            <div>
+                <label class="mb-2 block text-xs font-medium text-slate-600 dark:text-slate-400">Bank transfer
+                    option</label>
+
+                <button type="button" class="group flex w-full items-center justify-between rounded-md border border-slate-200 bg-white px-3 py-3 text-sm
+                               text-slate-900 shadow-sm transition
+                               hover:border-slate-300 hover:bg-slate-50
+                               focus:outline-none focus:ring-2 focus:ring-slate-900/10
+                               dark:border-slate-800 dark:bg-black dark:text-slate-50
+                               dark:hover:border-slate-700 dark:hover:bg-white/5 dark:focus:ring-white/10">
+                    <span class="flex min-w-0 items-center gap-3">
+                        <span
+                            class="flex h-9 w-9 items-center justify-center rounded-full bg-black ring-1 ring-slate-200 dark:ring-slate-800">
+                            <img src="~/assets/payments/bank-transfer.svg" alt="Online Bank Transfer"
+                                class="h-5 w-5 object-contain" />
+                        </span>
+                        <span class="truncate">Online Bank Transfer</span>
+                    </span>
+
+                    <span
+                        class="text-slate-400 transition group-hover:text-slate-600 dark:text-slate-600 dark:group-hover:text-slate-400">
+                        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </span>
+                </button>
+            </div>
+
+            <!-- To account -->
+            <div>
+                <label class="mb-2 block text-xs font-medium text-slate-600 dark:text-slate-400">To account</label>
+
+                <div class="flex w-full items-center justify-between gap-3 rounded-md border border-slate-200 bg-white px-3 py-3 text-sm
+                            text-slate-900 shadow-sm
+                            dark:border-slate-800 dark:bg-black dark:text-slate-50">
+                    <div class="flex min-w-0 items-center gap-2">
+                        <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-1 text-[11px] font-semibold text-slate-700
+                                     dark:bg-white/10 dark:text-slate-200">
+                            MT5
+                        </span>
+                        <span class="truncate">222217462</span>
+                    </div>
+
+                    <button type="button" class="group inline-flex items-center gap-2 rounded-md px-2 py-1 text-slate-700 hover:bg-slate-50
+                                   dark:text-slate-200 dark:hover:bg-white/5">
+                        <span class="tabular-nums">0 NGN</span>
+                        <svg viewBox="0 0 24 24"
+                            class="h-4 w-4 text-slate-400 group-hover:text-slate-600 dark:text-slate-600 dark:group-hover:text-slate-400"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Amount -->
+            <div>
+                <label class="mb-2 block text-xs font-medium text-slate-600 dark:text-slate-400">Amount</label>
+
+                <div class="flex items-center justify-between gap-3 rounded-md border border-slate-200 bg-white px-3 py-2 shadow-sm
+                            focus-within:ring-2 focus-within:ring-slate-900/10
+                            dark:border-slate-800 dark:bg-black dark:focus-within:ring-white/10">
+                    <input type="number" inputmode="numeric" placeholder="0" class="w-full bg-transparent text-base font-medium text-slate-900 placeholder:text-slate-400
+                               outline-none
+                               dark:text-slate-50 dark:placeholder:text-slate-600" />
+                    <span class="shrink-0 text-sm font-semibold text-slate-700 dark:text-slate-200">NGN</span>
+                </div>
+
+                <p class="mt-2 text-sm text-blue-600 dark:text-blue-400">
+                    17,617 - 14,524,938 NGN
+                </p>
+            </div>
+
+            <!-- Summary bar -->
+            <div class="rounded-md bg-slate-50 px-5 py-5 dark:bg-white/5">
+                <div class="flex items-center justify-between">
+                    <p class="text-sm text-slate-600 dark:text-slate-400">To be deposited</p>
+                    <p class="text-2xl font-semibold tabular-nums text-slate-900 dark:text-slate-50">0 NGN</p>
+                </div>
+            </div>
+
+            <!-- Primary action -->
+            <div class="flex items-center justify-end gap-3">
+                <button type="button" class="rounded-md border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900
+                               hover:bg-slate-50
+                               dark:border-slate-800 dark:bg-black dark:text-slate-50 dark:hover:bg-white/5">
+                    Cancel
+                </button>
+
+                <button type="button" class="rounded-md bg-brandYellow px-5 py-2 text-sm font-semibold text-black
+                               hover:bg-yellow-300 active:bg-yellow-400">
+                    Continue
+                </button>
+            </div>
+        </section>
+
+        <!-- RIGHT: Terms -->
+        <aside class="h-fit rounded-md border border-slate-200 bg-white p-5 shadow-sm
+                      dark:border-slate-800 dark:bg-black">
+            <h2 class="text-sm font-semibold text-slate-900 dark:text-slate-50">Terms</h2>
+
+            <dl class="mt-4 space-y-3 text-sm">
+                <div class="flex items-center justify-between gap-3">
+                    <dt class="text-slate-500 dark:text-slate-400">Average payment time</dt>
+                    <dd class="font-semibold text-slate-900 dark:text-slate-50">Instant</dd>
+                </div>
+                <div class="flex items-center justify-between gap-3">
+                    <dt class="text-slate-500 dark:text-slate-400">Fee</dt>
+                    <dd class="font-semibold text-slate-900 dark:text-slate-50">0%</dd>
+                </div>
+            </dl>
+        </aside>
+    </div>
+</div>

@@ -1,0 +1,253 @@
+@{
+    ViewData["Title"] = "Copy Trading";
+    Layout = "~/Views/Shared/_Account.cshtml";
+}
+
+<section class="mx-auto w-full max-w-6xl">
+
+    <!-- PAGE TITLE -->
+    <div class="flex items-center justify-between">
+        <h1 class="text-[42px] font-semibold tracking-tight text-slate-950 dark:text-white">
+            Copy Trading
+        </h1>
+    </div>
+
+    <!-- TABS -->
+    <div class="mt-6 flex gap-6 border-b border-slate-200 dark:border-slate-800">
+        <button class="exTab is-active">Discover strategies</button>
+        <button class="exTab">Favorites</button>
+        <button class="exTab">Assets</button>
+        <button class="exTab">My strategies</button>
+    </div>
+
+    <!-- FILTER PILLS -->
+    <div class="mt-5 flex flex-wrap gap-2">
+        <button class="exFilter is-active">All strategies</button>
+        <button class="exFilter">Most Copied</button>
+        <button class="exFilter">Recently viewed</button>
+        <button class="exFilter">Return with Moderate Drawdown</button>
+        <button class="exFilter">Best Return for 3 months</button>
+        <button class="exFilter">Low Fee</button>
+        <button class="exFilter">New Strategies</button>
+    </div>
+
+    <!-- MOST COPIED -->
+    <div class="mt-10 flex items-center justify-between">
+        <h2 class="text-lg font-semibold text-slate-950 dark:text-white">
+            Most Copied
+        </h2>
+        <a href="#" class="exLink">See all →</a>
+    </div>
+
+    <div class="mt-4 divide-y divide-slate-200 dark:divide-slate-800">
+
+        <!-- ROW -->
+        <div class="exRow">
+            <div class="flex items-center gap-4">
+                <span class="exRank">1</span>
+                <img src="~/img/strategies/strategy1.png" class="exAvatar" />
+                <div>
+                    <p class="font-semibold text-slate-950 dark:text-white">
+                        Nghiện Forex X4 HDPE
+                    </p>
+                    <p class="exMeta">
+                        ↑ 1063% · Fee 30%
+                    </p>
+                </div>
+            </div>
+            <div class="text-right">
+                <p class="font-semibold text-slate-950 dark:text-white">7074</p>
+                <p class="exMeta">Investors</p>
+            </div>
+        </div>
+
+        <div class="exRow">
+            <div class="flex items-center gap-4">
+                <span class="exRank">2</span>
+                <img src="~/img/strategies/strategy2.png" class="exAvatar" />
+                <div>
+                    <p class="font-semibold text-slate-950 dark:text-white">
+                        Ds Steady Growth
+                    </p>
+                    <p class="exMeta">
+                        ↑ 197% · Fee 30%
+                    </p>
+                </div>
+            </div>
+            <div class="text-right">
+                <p class="font-semibold text-slate-950 dark:text-white">3446</p>
+                <p class="exMeta">Investors</p>
+            </div>
+        </div>
+
+        <div class="exRow">
+            <div class="flex items-center gap-4">
+                <span class="exRank">3</span>
+                <img src="~/img/strategies/strategy3.png" class="exAvatar" />
+                <div>
+                    <p class="font-semibold text-slate-950 dark:text-white">
+                        Chiến lược million U
+                    </p>
+                    <p class="exMeta">
+                        ↑ 4228% · Fee 30%
+                    </p>
+                </div>
+            </div>
+            <div class="text-right">
+                <p class="font-semibold text-slate-950 dark:text-white">3032</p>
+                <p class="exMeta">Investors</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FEATURED STRATEGY -->
+    <div class="mt-10 rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-black">
+        <div class="flex items-center justify-between gap-6">
+            <div class="flex items-center gap-4">
+                <span class="text-lg">🔥</span>
+                <div>
+                    <p class="font-semibold text-slate-950 dark:text-white">
+                        Best strategy by return per 3 months
+                    </p>
+                    <p class="exMeta">Girl Trading · Return 9999%</p>
+                </div>
+            </div>
+
+            <div class="flex gap-2">
+                <button class="exBtn ghost">Details</button>
+                <button class="exBtn primary">Invest 10 USD</button>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<style>
+    /* ===== EXNESS STYLE SYSTEM ===== */
+
+    .exTab {
+        padding: 12px 0;
+        font-size: 14px;
+        font-weight: 600;
+        color: #64748b;
+        border-bottom: 2px solid transparent;
+    }
+
+    .exTab.is-active {
+        color: #0f172a;
+        border-color: #0f172a;
+    }
+
+    .dark .exTab {
+        color: #94a3b8;
+    }
+
+    .dark .exTab.is-active {
+        color: #fff;
+        border-color: #fff;
+    }
+
+    /* FILTERS */
+    .exFilter {
+        height: 32px;
+        padding: 0 14px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 600;
+        border: 1px solid #e5e7eb;
+        background: #f8fafc;
+        color: #0f172a;
+    }
+
+    .exFilter.is-active {
+        background: #000;
+        color: #fff;
+    }
+
+    .dark .exFilter {
+        background: #0b0b0b;
+        border-color: #1f2937;
+        color: #e5e7eb;
+    }
+
+    .dark .exFilter.is-active {
+        background: #fff;
+        color: #000;
+    }
+
+    /* ROWS */
+    .exRow {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 0;
+    }
+
+    .exRow:hover {
+        background: rgba(15, 23, 42, .03);
+    }
+
+    .dark .exRow:hover {
+        background: rgba(255, 255, 255, .04);
+    }
+
+    .exRank {
+        width: 22px;
+        text-align: center;
+        font-weight: 700;
+        color: #64748b;
+    }
+
+    /* AVATAR */
+    .exAvatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+
+    /* META */
+    .exMeta {
+        font-size: 12px;
+        color: #64748b;
+    }
+
+    .dark .exMeta {
+        color: #9ca3af;
+    }
+
+    /* BUTTONS */
+    .exBtn {
+        height: 36px;
+        padding: 0 14px;
+        font-size: 13px;
+        font-weight: 600;
+        border-radius: 8px;
+    }
+
+    .exBtn.primary {
+        background: #f9d900;
+        color: #000;
+    }
+
+    .exBtn.ghost {
+        background: #f1f5f9;
+        color: #0f172a;
+    }
+
+    .dark .exBtn.ghost {
+        background: #111827;
+        color: #e5e7eb;
+    }
+
+    /* LINKS */
+    .exLink {
+        font-size: 13px;
+        font-weight: 600;
+        color: #0f172a;
+    }
+
+    .dark .exLink {
+        color: #e5e7eb;
+    }
+</style>

@@ -1,0 +1,731 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    ViewBag.Title = "Home";
+}
+
+<!-- ============ FULL-WIDTH DARK TICKER BAR ============ -->
+<section id="contest-ticker" class="w-full bg-[#0d0d0d] dark:bg-black">
+    <div class="tradingview-widget-container w-full">
+        <div class="tradingview-widget-container__widget"></div>
+
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+            async>
+                {
+                    "symbols": [
+                        { "proName": "FOREXCOM:SPXUSD", "title": "S&P 500 Index" },
+                        { "proName": "FOREXCOM:NSXUSD", "title": "US 100 Cash CFD" },
+                        { "proName": "FX_IDC:EURUSD", "title": "EUR/USD" },
+                        { "proName": "BITSTAMP:BTCUSD", "title": "Bitcoin" },
+                        { "proName": "BITSTAMP:ETHUSD", "title": "Ethereum" },
+                        { "proName": "OANDA:XAUUSD", "title": "Gold" },
+                        { "proName": "NASDAQ:NVDA", "title": "NVIDIA" },
+                        { "proName": "BINANCE:XRPUSDT", "title": "XRP" },
+                        { "proName": "OANDA:USDJPY", "title": "USD/JPY" }
+                    ],
+                        "colorTheme": "dark",
+                            "locale": "en",
+                                "displayMode": "regular",
+                                    "isTransparent": false,
+                                        "showSymbolLogo": true,
+                                            "largeChartUrl": ""
+                }
+            </script>
+    </div>
+</section>
+<!-- ============ HERO SECTION ============ -->
+<section id="hero" class="relative w-full overflow-hidden bg-white dark:bg-black">
+
+    <!-- Background Image with Visible Opacity -->
+    <div class="pointer-events-none absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-40 dark:opacity-50"
+        style="background-image: url('@Url.Content("~/img/main.webp")');">
+    </div>
+
+    <!-- VERY LIGHT Overlay -->
+    <div class="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b
+                from-white/40 via-white/25 to-white/10
+                dark:from-black/60 dark:via-black/45 dark:to-black/30">
+    </div>
+
+    <!-- CONTENT -->
+    <div class="relative z-20 mx-auto flex max-w-6xl flex-col items-center px-4 py-14 text-center md:py-20">
+
+        <!-- Small badge -->
+        <div class="inline-flex items-center gap-2 rounded-full bg-white/70 dark:bg-slate-900/70 
+                    px-3 py-1 text-[11px] font-medium text-slate-700 dark:text-slate-200">
+            <span class="inline-flex h-5 w-5 items-center justify-center rounded-full 
+                         bg-amber-100 dark:bg-amber-200/70">
+                <svg viewBox="0 0 20 20" class="h-3.5 w-3.5 text-amber-500" fill="currentColor">
+                    <path d="M10 2.5 7.9 7 3 7.6l3.6 3.1-1 4.8L10 13.4l4.4 2.1-1-4.8L17 7.6 12.1 7 10 2.5Z" />
+                </svg>
+            </span>
+            <span>Trusted by 476+ active traders worldwide</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="mt-4 text-3xl font-bold tracking-tight text-slate-900 md:text-5xl dark:text-white">
+            Trade with
+            <span class="block text-brandGold">the No. 1 Most Secure Broker</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="mt-4 max-w-2xl text-sm text-slate-600 md:text-base dark:text-slate-300">
+            Start strong with an instant $50 boost. Ignite your passion, elevate your game,
+            and unlock a world of rewarding possibilities on MT5.
+        </p>
+
+        <!-- CTA -->
+        <div class="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+            <a href="~/Account/Register" class="rounded-full bg-brandGold px-8 py-2.5 text-sm font-semibold text-slate-900 
+                      shadow-soft-card hover:bg-yellow-300 focus-visible:ring-2 
+                      focus-visible:ring-brandGold/70">
+                Redeem $50 Bonus Now
+            </a>
+        </div>
+
+        <!-- Rating -->
+        <div class="mt-5 flex flex-wrap items-center justify-center gap-2 
+                    text-[12px] text-slate-700 dark:text-slate-300">
+            <div class="flex items-center gap-1">
+                <span class="text-amber-400 text-lg leading-none">★★★★★</span>
+                <span>4.5 / 5 average rating</span>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ============ TRADING EXPERIENCE SECTION ============ -->
+
+
+<section id="trading-experience" class="bg-slate-50 py-14 md:py-20 dark:bg-black">
+    <div class="mx-auto max-w-6xl px-4">
+        <!-- Heading -->
+        <div class="text-center">
+            <h2 class="text-2xl font-bold tracking-tight text-slate-900 md:text-4xl dark:text-slate-50">
+                Elevate Your Trading
+                <span class="text-brandGold">Experience</span>
+            </h2>
+            <p class="mt-3 text-sm text-slate-600 md:text-base dark:text-slate-300">
+                Unlock your trading potential with powerful and intuitive tools, ultra-fast execution,
+                and real-time insights designed for a superior trading experience.
+            </p>
+        </div>
+
+        <!-- Cards grid -->
+        <div class="mt-10 grid gap-5 md:mt-12 md:grid-cols-2">
+
+            <!-- CARD TEMPLATE: use this structure for all four cards -->
+            <!-- CARD 1 -->
+            <article class="relative min-h-[220px] overflow-hidden rounded-3xl bg-black text-white md:min-h-[260px]">
+                <!-- Background image -->
+                <div class="absolute inset-0 bg-cover bg-right bg-no-repeat z-0"
+                    style="background-image: url('@Url.Content("~/img/contest.webp")');">
+                </div>
+                <!-- Semi-transparent dark overlay -->
+                <div class="absolute inset-0 z-0 bg-gradient-to-r from-black/90 via-black/80 to-black/40"></div>
+
+                <!-- Content (on top of image/overlay) -->
+                <div class="relative z-10 flex h-full flex-col justify-between px-6 py-6 md:px-8 md:py-8">
+                    <div>
+                        <h3 class="text-lg font-semibold md:text-xl">Quick Order Execution</h3>
+                    </div>
+                    <p class="mt-6 max-w-xs text-xs leading-relaxed text-slate-200 md:text-sm">
+                        Experience trading with average execution speeds of under 33 milliseconds.
+                    </p>
+                </div>
+            </article>
+
+            <!-- CARD 2 -->
+            <article class="relative min-h-[220px] overflow-hidden rounded-3xl bg-black text-white md:min-h-[260px]">
+                <div class="absolute inset-0 bg-cover bg-right bg-no-repeat z-0"
+                    style="background-image: url('@Url.Content("~/img/fast.webp")');">
+                </div>
+                <div class="absolute inset-0 z-0 bg-gradient-to-r from-black/90 via-black/80 to-black/40"></div>
+
+                <div class="relative z-10 flex h-full flex-col justify-between px-6 py-6 md:px-8 md:py-8">
+                    <div>
+                        <h3 class="text-lg font-semibold md:text-xl">High Leverage</h3>
+                    </div>
+                    <p class="mt-6 max-w-xs text-xs leading-relaxed text-slate-200 md:text-sm">
+                        Maximise your trading potential with minimal capital by leveraging up to 1:3000.
+                    </p>
+                </div>
+            </article>
+
+            <!-- CARD 3 -->
+            <article class="relative min-h-[220px] overflow-hidden rounded-3xl bg-black text-white md:min-h-[260px]">
+                <div class="absolute inset-0 bg-cover bg-right bg-no-repeat z-0"
+                    style="background-image: url('@Url.Content("~/img/fast.webp")');">
+                </div>
+                <div class="absolute inset-0 z-0 bg-gradient-to-r from-black/90 via-black/80 to-black/40"></div>
+
+                <div class="relative z-10 flex h-full flex-col justify-between px-6 py-6 md:px-8 md:py-8">
+                    <div>
+                        <h3 class="text-lg font-semibold md:text-xl">Fast Deposits &amp; Withdrawals</h3>
+                    </div>
+                    <p class="mt-6 max-w-xs text-xs leading-relaxed text-slate-200 md:text-sm">
+                        Deposit within minutes and withdraw profits in under 10 minutes with a seamless,
+                        hassle-free process.
+                    </p>
+                </div>
+            </article>
+
+            <!-- CARD 4 -->
+            <article class="relative min-h-[220px] overflow-hidden rounded-3xl bg-black text-white md:min-h-[260px]">
+                <div class="absolute inset-0 bg-cover bg-right bg-no-repeat z-0"
+                    style="background-image: url('@Url.Content("~/img/spread.webp")');">
+                </div>
+                <div class="absolute inset-0 z-0 bg-gradient-to-r from-black/90 via-black/80 to-black/40"></div>
+
+                <div class="relative z-10 flex h-full flex-col justify-between px-6 py-6 md:px-8 md:py-8">
+                    <div>
+                        <h3 class="text-lg font-semibold md:text-xl">From 0.1 pips Spread</h3>
+                    </div>
+                    <p class="mt-6 max-w-xs text-xs leading-relaxed text-slate-200 md:text-sm">
+                        Maximise your trading profits by accessing some of the most competitive spreads available.
+                    </p>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============ HOW TO OPEN AN ACCOUNT / STEPS (TRADING HIGHLIGHTS) ============ -->
+<section id="trading-highlights" class="bg-white py-14 md:py-20 dark:bg-black">
+    <div class="mx-auto max-w-6xl px-4">
+        <div class="text-center">
+            <h2 class="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl dark:text-slate-50">
+                Get Started in <span class="text-brandGold">4 Simple Steps</span>
+            </h2>
+            <p class="mt-3 text-sm text-slate-600 md:text-base dark:text-slate-300">
+                Open your trading account, verify your profile, fund it, and start trading in minutes.
+            </p>
+        </div>
+
+        <div class="mt-10 grid gap-5 md:grid-cols-4">
+            <!-- Step 1 -->
+            <article
+                class="flex flex-col rounded-3xl border border-slate-100 bg-slate-50/60 px-4 py-6 text-center shadow-sm md:px-5 dark:border-slate-800 dark:bg-[#050505]">
+                <div
+                    class="mx-auto flex h-10 w-10 items-center justify-center rounded-2xl bg-black text-white dark:bg-brandGold dark:text-slate-900">
+                    <span class="text-sm font-semibold">1</span>
+                </div>
+                <div class="mt-4 flex items-center justify-center">
+                    <!-- User plus icon -->
+                    <svg viewBox="0 0 24 24" class="h-9 w-9 text-slate-900 dark:text-slate-100" fill="none"
+                        stroke="currentColor" stroke-width="1.7">
+                        <circle cx="12" cy="8" r="3.2" />
+                        <path d="M5 19a7 7 0 0 1 14 0" />
+                        <path d="M18 7.5h3" />
+                        <path d="M19.5 6v3" />
+                    </svg>
+                </div>
+                <h3 class="mt-4 text-sm font-semibold text-slate-900 md:text-base dark:text-slate-100">
+                    Register Account
+                </h3>
+                <p class="mt-2 text-xs text-slate-600 md:text-sm dark:text-slate-300">
+                    Sign up with your email and create a secure trading profile.
+                </p>
+            </article>
+
+            <!-- Step 2 -->
+            <article
+                class="flex flex-col rounded-3xl border border-slate-100 bg-slate-50/60 px-4 py-6 text-center shadow-sm md:px-5 dark:border-slate-800 dark:bg-[#050505]">
+                <div
+                    class="mx-auto flex h-10 w-10 items-center justify-center rounded-2xl bg-black text-white dark:bg-brandGold dark:text-slate-900">
+                    <span class="text-sm font-semibold">2</span>
+                </div>
+                <div class="mt-4 flex items-center justify-center">
+                    <!-- Shield check icon -->
+                    <svg viewBox="0 0 24 24" class="h-9 w-9 text-slate-900 dark:text-slate-100" fill="none"
+                        stroke="currentColor" stroke-width="1.7">
+                        <path d="M12 3 5.5 5.2v6c0 3.4 2.3 6.6 6.5 8.3 4.2-1.7 6.5-4.9 6.5-8.3v-6L12 3Z" />
+                        <path d="m9.5 12.2 1.8 1.8 3.2-3.3" />
+                    </svg>
+                </div>
+                <h3 class="mt-4 text-sm font-semibold text-slate-900 md:text-base dark:text-slate-100">
+                    Verify Your Profile
+                </h3>
+                <p class="mt-2 text-xs text-slate-600 md:text-sm dark:text-slate-300">
+                    Complete a quick KYC check to secure your account and unlock full features.
+                </p>
+            </article>
+
+            <!-- Step 3 -->
+            <article
+                class="flex flex-col rounded-3xl border border-slate-100 bg-slate-50/60 px-4 py-6 text-center shadow-sm md:px-5 dark:border-slate-800 dark:bg-[#050505]">
+                <div
+                    class="mx-auto flex h-10 w-10 items-center justify-center rounded-2xl bg-black text-white dark:bg-brandGold dark:text-slate-900">
+                    <span class="text-sm font-semibold">3</span>
+                </div>
+                <div class="mt-4 flex items-center justify-center">
+                    <!-- Wallet / card icon -->
+                    <svg viewBox="0 0 24 24" class="h-9 w-9 text-slate-900 dark:text-slate-100" fill="none"
+                        stroke="currentColor" stroke-width="1.7">
+                        <rect x="3" y="7" width="18" height="10" rx="2" />
+                        <path d="M16 10.5h3" />
+                        <path d="M5 7V6a2 2 0 0 1 2-2h6.5" />
+                    </svg>
+                </div>
+                <h3 class="mt-4 text-sm font-semibold text-slate-900 md:text-base dark:text-slate-100">
+                    Fund Your Wallet
+                </h3>
+                <p class="mt-2 text-xs text-slate-600 md:text-sm dark:text-slate-300">
+                    Deposit instantly via local and global payment options tailored for you.
+                </p>
+            </article>
+
+            <!-- Step 4 -->
+            <article
+                class="flex flex-col rounded-3xl border border-slate-100 bg-slate-50/60 px-4 py-6 text-center shadow-sm md:px-5 dark:border-slate-800 dark:bg-[#050505]">
+                <div
+                    class="mx-auto flex h-10 w-10 items-center justify-center rounded-2xl bg-black text-white dark:bg-brandGold dark:text-slate-900">
+                    <span class="text-sm font-semibold">4</span>
+                </div>
+                <div class="mt-4 flex items-center justify-center">
+                    <!-- Candles / trading icon -->
+                    <svg viewBox="0 0 24 24" class="h-9 w-9 text-slate-900 dark:text-slate-100" fill="none"
+                        stroke="currentColor" stroke-width="1.7">
+                        <rect x="5" y="7" width="3" height="9" rx="1" />
+                        <path d="M6.5 4v3" />
+                        <path d="M6.5 16v4" />
+                        <rect x="11" y="5" width="3" height="9" rx="1" />
+                        <path d="M12.5 3v2" />
+                        <path d="M12.5 14v6" />
+                        <rect x="17" y="8" width="3" height="7" rx="1" />
+                        <path d="M18.5 5v3" />
+                        <path d="M18.5 15v3" />
+                    </svg>
+                </div>
+                <h3 class="mt-4 text-sm font-semibold text-slate-900 md:text-base dark:text-slate-100">
+                    Start Trading Live
+                </h3>
+                <p class="mt-2 text-xs text-slate-600 md:text-sm dark:text-slate-300">
+                    Trade Forex, indices, commodities, and crypto pairs on MT5 with pro tools.
+                </p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- ============ TESTIMONIALS / CLIENTS SAY ============ -->
+<section id="clients-say" class="bg-slate-50 py-14 md:py-20 dark:bg-black">
+    <div class="mx-auto max-w-6xl px-4">
+        <!-- Heading -->
+        <div class="text-center">
+            <h2 class="text-2xl font-bold tracking-tight text-slate-900 md:text-4xl dark:text-slate-50">
+                What Our Clients <span class="text-brandGold">Say</span>
+            </h2>
+            <p class="mt-3 text-sm text-slate-600 md:text-base dark:text-slate-300">
+                Real trading experiences from verified clients across the globe.
+            </p>
+        </div>
+
+        <!-- Grid -->
+        <div class="mt-10 grid gap-5 md:mt-12 md:grid-cols-3">
+            <!-- Card 1 -->
+            <article
+                class="flex min-h-[170px] flex-col justify-between rounded-3xl border border-slate-200 bg-white px-6 py-6 text-sm text-slate-800 shadow-sm md:px-7 md:py-7 dark:border-slate-800 dark:bg-[#050505] dark:text-slate-100">
+                <p class="leading-relaxed">
+                    "I switched brokers and never looked back. Execution is solid."
+                </p>
+                <div class="mt-6 flex items-end justify-between text-[11px] text-slate-500 dark:text-slate-400">
+                    <div class="flex items-center gap-0.5 text-brandGold">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <div class="text-right">
+                        <div>Michael Johnson</div>
+                        <div class="text-[10px]">Jul 2023</div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article
+                class="flex min-h-[170px] flex-col justify-between rounded-3xl border border-slate-200 bg-white px-6 py-6 text-sm text-slate-800 shadow-sm md:px-7 md:py-7 dark:border-slate-800 dark:bg-[#050505] dark:text-slate-100">
+                <p class="leading-relaxed">
+                    "Clean interface and secure platform. I feel safe trading here."
+                </p>
+                <div class="mt-6 flex items-end justify-between text-[11px] text-slate-500 dark:text-slate-400">
+                    <div class="flex items-center gap-0.5 text-brandGold">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <div class="text-right">
+                        <div>David Smith</div>
+                        <div class="text-[10px]">Apr 2024</div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article
+                class="flex min-h-[170px] flex-col justify-between rounded-3xl border border-slate-200 bg-white px-6 py-6 text-sm text-slate-800 shadow-sm md:px-7 md:py-7 dark:border-slate-800 dark:bg-[#050505] dark:text-slate-100">
+                <p class="leading-relaxed">
+                    "Platform stability is excellent. I can trade without interruptions."
+                </p>
+                <div class="mt-6 flex items-end justify-between text-[11px] text-slate-500 dark:text-slate-400">
+                    <div class="flex items-center gap-0.5 text-brandGold">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <div class="text-right">
+                        <div>Christopher Lee</div>
+                        <div class="text-[10px]">Apr 2025</div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 4 -->
+            <article
+                class="flex min-h-[170px] flex-col justify-between rounded-3xl border border-slate-200 bg-white px-6 py-6 text-sm text-slate-800 shadow-sm md:px-7 md:py-7 dark:border-slate-800 dark:bg-[#050505] dark:text-slate-100">
+                <p class="leading-relaxed">
+                    "The Islamic account option is very important for me. Thank you."
+                </p>
+                <div class="mt-6 flex items-end justify-between text-[11px] text-slate-500 dark:text-slate-400">
+                    <div class="flex items-center gap-0.5 text-brandGold">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <div class="text-right">
+                        <div>Fatima Khalid</div>
+                        <div class="text-[10px]">Dec 2023</div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 5 -->
+            <article
+                class="flex min-h-[170px] flex-col justify-between rounded-3xl border border-slate-200 bg-white px-6 py-6 text-sm text-slate-800 shadow-sm md:px-7 md:py-7 dark:border-slate-800 dark:bg-[#050505] dark:text-slate-100">
+                <p class="leading-relaxed">
+                    "Excellent customer support and trustworthy trading environment."
+                </p>
+                <div class="mt-6 flex items-end justify-between text-[11px] text-slate-500 dark:text-slate-400">
+                    <div class="flex items-center gap-0.5 text-brandGold">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <div class="text-right">
+                        <div>Ahmed Saeed</div>
+                        <div class="text-[10px]">Sep 2024</div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 6 -->
+            <article
+                class="flex min-h-[170px] flex-col justify-between rounded-3xl border border-slate-200 bg-white px-6 py-6 text-sm text-slate-800 shadow-sm md:px-7 md:py-7 dark:border-slate-800 dark:bg-[#050505] dark:text-slate-100">
+                <p class="leading-relaxed">
+                    "Very impressed with the speed of withdrawals to my US account."
+                </p>
+                <div class="mt-6 flex items-end justify-between text-[11px] text-slate-500 dark:text-slate-400">
+                    <div class="flex items-center gap-0.5 text-brandGold">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <div class="text-right">
+                        <div>Jessica Brown</div>
+                        <div class="text-[10px]">Jan 2025</div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- ============ PLATFORM / FUTURE OF TRADING ============ -->
+<section id="platforms" class="relative overflow-hidden bg-black text-white">
+
+    <!-- Background image with opacity (full section) -->
+    <div class="pointer-events-none absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-50"
+        style="background-image: url('@Url.Content("~/img/mt5.webp")');">
+    </div>
+
+    <!-- Dark overlay for better contrast -->
+    <div class="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r
+                from-black/85 via-black/50 to-black/10">
+    </div>
+
+    <div class="relative z-20 mx-auto flex max-w-6xl flex-col items-center px-4 py-14
+                md:flex-row md:items-center md:py-20">
+
+        <!-- LEFT: TEXT + CTA -->
+        <div class="w-full md:w-1/2">
+            <!-- Platform toggle -->
+            <div
+                class="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-2 py-1 text-[11px]">
+                <button class="flex items-center gap-2 rounded-full bg-white px-3 py-1 font-semibold text-black">
+                    <span class="h-3 w-3 rounded-full bg-brandGold"></span>
+                    <span>MetaTrader 5</span>
+                </button>
+            </div>
+
+            <!-- Heading -->
+            <h2 class="mt-5 text-3xl font-bold tracking-tight md:text-4xl">
+                Unlock Access to
+                <span class="block text-brandGold">The Future of Trading</span>
+            </h2>
+
+            <!-- Description -->
+            <p class="mt-4 text-sm text-slate-300 md:text-base">
+                Experience the ultimate trading platform with advanced tools, lightning-fast execution,
+                and professional-grade analysis.
+            </p>
+
+            <!-- Learn more link -->
+            <button class="mt-6 inline-flex items-center gap-1 text-sm font-medium text-white">
+                <span>Learn more about MetaTrader 5</span>
+                <span class="text-xs">↗</span>
+                <span class="mt-2 block h-px w-40 bg-white/40"></span>
+            </button>
+
+            <!-- Download buttons -->
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <!-- Windows -->
+                <a href="#"
+                    class="flex items-center gap-3 rounded-full border border-white/40 px-5 py-3 text-xs font-medium text-white hover:bg-white/5">
+                    <span class="flex h-7 w-7 items-center justify-center rounded-md border border-white/40">
+                        <svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor">
+                            <path
+                                d="M3 5.1 11 4v7H3V5.1Zm0 5.8h8v7L3 16.9V10.9Zm10-7.2L21 3v8h-8V3.7Zm0 8.3h8v8l-8-1.1V12Z" />
+                        </svg>
+                    </span>
+                    <span class="flex flex-col text-left leading-tight">
+                        <span class="text-[10px] text-slate-300">Download for</span>
+                        <span class="text-xs font-semibold">Windows</span>
+                    </span>
+                </a>
+
+                <!-- App Store -->
+                <a href="#"
+                    class="flex items-center gap-3 rounded-full border border-white/40 px-5 py-3 text-xs font-medium text-white hover:bg-white/5">
+                    <span class="flex h-7 w-7 items-center justify-center rounded-md border border-white/40">
+                        <svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor">
+                            <path
+                                d="M16.7 2.5c-.9.1-2 .6-2.6 1.3-.6.7-1.1 1.8-1 2.9 1 .1 2.1-.5 2.7-1.2.6-.7 1-1.8.9-3ZM19.7 8.5c-1-.1-2 .3-2.7.3-.7 0-1.8-.3-3.1-.3-1.2 0-2.6.7-3.4 1.7-1.2 1.6-1 4.5.9 7.1.7 1 1.6 2.1 2.8 2.1 1.1 0 1.5-.7 2.9-.7 1.4 0 1.7.7 2.9.7 1.2 0 2-1 2.7-2.1.8-1.1 1.1-2.1 1.1-2.2-.1 0-2.1-.8-2.1-3.1 0-1.9 1.5-2.7 1.6-2.8-.9-1.3-2.4-1.4-2.9-1.4Z" />
+                        </svg>
+                    </span>
+                    <span class="flex flex-col text-left leading-tight">
+                        <span class="text-[10px] text-slate-300">Get it on</span>
+                        <span class="text-xs font-semibold">App Store</span>
+                    </span>
+                </a>
+
+                <!-- Google Play -->
+                <a href="#"
+                    class="flex items-center gap-3 rounded-full border border-white/40 px-5 py-3 text-xs font-medium text-white hover:bg-white/5">
+                    <span class="flex h-7 w-7 items-center justify-center rounded-md border border-white/40">
+                        <svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor">
+                            <path d="M4 3.5v17l13.5-8.5L4 3.5Zm2 3.5 8 5-8 5v-10Z" />
+                        </svg>
+                    </span>
+                    <span class="flex flex-col text-left leading-tight">
+                        <span class="text-[10px] text-slate-300">Get it on</span>
+                        <span class="text-xs font-semibold">Google Play</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+<!-- ============ FAQ SECTION ============ -->
+<section id="faq" class="bg-slate-50 py-14 md:py-20 dark:bg-black">
+    <div class="mx-auto max-w-6xl px-4">
+        <div class="grid gap-10 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] md:items-start">
+            <!-- LEFT: TITLE + COPY -->
+            <div>
+                <h2 class="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl dark:text-slate-50">
+                    Frequently<br />
+                    Asked Questions
+                </h2>
+                <p class="mt-4 max-w-sm text-sm text-slate-600 md:text-base dark:text-slate-300">
+                    Get answers to the most common questions about our trading services
+                    and platform features.
+                </p>
+
+                <button
+                    class="mt-8 inline-flex items-center rounded-2xl bg-black px-6 py-3 text-sm font-semibold text-white shadow-soft-card hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brandGold/70 dark:bg-brandGold dark:text-slate-900 dark:hover:bg-yellow-400">
+                    Help Centre
+                </button>
+            </div>
+
+            <!-- RIGHT: FAQ LIST -->
+            <div class="space-y-3">
+                <!-- Item template: each has button + panel -->
+                <div
+                    class="faq-item overflow-hidden rounded-3xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-[#050505]">
+                    <button type="button"
+                        class="faq-toggle flex w-full items-center justify-between px-6 py-4 text-left text-sm font-medium text-slate-900 md:px-8 md:py-5 md:text-base dark:text-slate-100"
+                        data-faq-target="faq-1">
+                        <span>What is EMAR Markets and why should I choose it?</span>
+                        <svg class="faq-chevron h-4 w-4 text-slate-400 transition-transform duration-200 dark:text-slate-300"
+                            viewBox="0 0 20 20" fill="none">
+                            <path d="M5 7l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div id="faq-1"
+                        class="faq-panel hidden border-t border-slate-100 px-6 pb-4 pt-2 text-xs text-slate-600 md:px-8 md:pb-5 md:pt-3 md:text-sm dark:border-slate-800 dark:text-slate-300">
+                        EMAR Markets (pty) Ltd is a regulated broker offering secure, low-latency trading
+                        on Forex, indices, commodities, and crypto pairs. You benefit from tight spreads,
+                        fast execution, responsive support, and a platform built for serious traders.
+                    </div>
+                </div>
+
+                <div
+                    class="faq-item overflow-hidden rounded-3xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-[#050505]">
+                    <button type="button"
+                        class="faq-toggle flex w-full items-center justify-between px-6 py-4 text-left text-sm font-medium text-slate-900 md:px-8 md:py-5 md:text-base dark:text-slate-100"
+                        data-faq-target="faq-2">
+                        <span>How do I get started with trading?</span>
+                        <svg class="faq-chevron h-4 w-4 text-slate-400 transition-transform duration-200 dark:text-slate-300"
+                            viewBox="0 0 20 20" fill="none">
+                            <path d="M5 7l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div id="faq-2"
+                        class="faq-panel hidden border-t border-slate-100 px-6 pb-4 pt-2 text-xs text-slate-600 md:px-8 md:pb-5 md:pt-3 md:text-sm dark:border-slate-800 dark:text-slate-300">
+                        Create an account, verify your profile, fund your wallet, then download our MT5
+                        or cTrader platform. Once your funds land, you can place your first trade in minutes.
+                    </div>
+                </div>
+
+                <div
+                    class="faq-item overflow-hidden rounded-3xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-[#050505]">
+                    <button type="button"
+                        class="faq-toggle flex w-full items-center justify-between px-6 py-4 text-left text-sm font-medium text-slate-900 md:px-8 md:py-5 md:text-base dark:text-slate-100"
+                        data-faq-target="faq-3">
+                        <span>What trading platforms do you offer?</span>
+                        <svg class="faq-chevron h-4 w-4 text-slate-400 transition-transform duration-200 dark:text-slate-300"
+                            viewBox="0 0 20 20" fill="none">
+                            <path d="M5 7l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div id="faq-3"
+                        class="faq-panel hidden border-t border-slate-100 px-6 pb-4 pt-2 text-xs text-slate-600 md:px-8 md:pb-5 md:pt-3 md:text-sm dark:border-slate-800 dark:text-slate-300">
+                        We provide MetaTrader 5 and cTrader across desktop, web and mobile, giving you
+                        flexibility to trade wherever you are with the tools you prefer.
+                    </div>
+                </div>
+
+                <div
+                    class="faq-item overflow-hidden rounded-3xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-[#050505]">
+                    <button type="button"
+                        class="faq-toggle flex w-full items-center justify-between px-6 py-4 text-left text-sm font-medium text-slate-900 md:px-8 md:py-5 md:text-base dark:text-slate-100"
+                        data-faq-target="faq-4">
+                        <span>Is my money safe with EMAR Markets?</span>
+                        <svg class="faq-chevron h-4 w-4 text-slate-400 transition-transform duration-200 dark:text-slate-300"
+                            viewBox="0 0 20 20" fill="none">
+                            <path d="M5 7l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div id="faq-4"
+                        class="faq-panel hidden border-t border-slate-100 px-6 pb-4 pt-2 text-xs text-slate-600 md:px-8 md:pb-5 md:pt-3 md:text-sm dark:border-slate-800 dark:text-slate-300">
+                        We are authorised by the FSCA and follow strict regulatory standards, including
+                        segregated client funds, risk management and ongoing compliance monitoring.
+                    </div>
+                </div>
+
+                <div
+                    class="faq-item overflow-hidden rounded-3xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-[#050505]">
+                    <button type="button"
+                        class="faq-toggle flex w-full items-center justify-between px-6 py-4 text-left text-sm font-medium text-slate-900 md:px-8 md:py-5 md:text-base dark:text-slate-100"
+                        data-faq-target="faq-5">
+                        <span>What is the minimum deposit required?</span>
+                        <svg class="faq-chevron h-4 w-4 text-slate-400 transition-transform duration-200 dark:text-slate-300"
+                            viewBox="0 0 20 20" fill="none">
+                            <path d="M5 7l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div id="faq-5"
+                        class="faq-panel hidden border-t border-slate-100 px-6 pb-4 pt-2 text-xs text-slate-600 md:px-8 md:pb-5 md:pt-3 md:text-sm dark:border-slate-800 dark:text-slate-300">
+                        Our minimum deposit is designed to be accessible for new traders, while still
+                        giving you enough margin to manage risk properly. Exact thresholds may vary by
+                        payment method and region.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ RECEIVE MORE / WORRY LESS ============ -->
+<section id="receive-more" class="relative overflow-hidden bg-black text-white">
+
+    <!-- FULL BACKGROUND IMAGE (VISIBLE, NO OPACITY) -->
+    <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style="background-image: url('@Url.Content("~/img/usp2.webp")');">
+    </div>
+
+    <!-- GRADIENT OVERLAY FOR READABILITY -->
+    <div class="absolute inset-0 -z-10 bg-gradient-to-r from-black/95 via-black/85 to-black/90"></div>
+
+    <!-- CONTENT -->
+    <div class="relative z-10 mx-auto flex max-w-6xl flex-col gap-12 px-4 py-14 md:flex-row md:items-center md:py-20">
+
+        <!-- LEFT: TEXT -->
+        <div class="w-full md:w-1/2">
+            <h2 class="text-3xl font-bold tracking-tight md:text-4xl">
+                Receive More,<br />
+                <span class="text-brandGold">Worry Less</span>
+            </h2>
+
+            <p class="mt-4 max-w-md text-sm text-slate-200 md:text-base">
+                Unlock your trading potential with our Welcome Bonus, advanced tools, and ultimate
+                peace of mind for a seamless experience.
+            </p>
+
+            <button class="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-white">
+                <span>Start now</span>
+                <span class="text-xs">↗</span>
+            </button>
+            <div class="mt-1 h-px w-28 bg-white/40"></div>
+        </div>
+
+        <!-- RIGHT: CARDS -->
+        <div class="w-full md:w-1/2">
+            <div class="grid gap-4 md:grid-cols-2">
+
+                <!-- Card 1 -->
+                <article class="flex h-full flex-col justify-between rounded-3xl border border-white/10 bg-white/5 
+                           px-6 py-6 backdrop-blur-md shadow-soft-card md:px-7 md:py-7">
+                    <div>
+                        <h3 class="text-lg font-semibold md:text-xl">Welcome Bonus</h3>
+                        <p class="mt-1 text-sm text-slate-200">Risk-free trading</p>
+                        <p class="mt-4 text-xs leading-relaxed text-slate-200 md:text-sm">
+                            Claim your Welcome Bonus within 30 days after registration and explore the markets
+                            with added confidence.
+                        </p>
+                    </div>
+                    <button
+                        class="mt-6 inline-flex items-center justify-center rounded-full bg-white px-5 py-2 text-xs font-semibold text-black shadow-sm hover:bg-slate-100">
+                        Start now <span class="ml-1 text-[11px]">↗</span>
+                    </button>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="flex h-full flex-col justify-between rounded-3xl border border-white/10 bg-white/5 
+                           px-6 py-6 backdrop-blur-md shadow-soft-card md:px-7 md:py-7">
+                    <div>
+                        <h3 class="text-lg font-semibold md:text-xl">MetaTrader 5</h3>
+                        <p class="mt-1 text-sm text-slate-200">Elevated trading power</p>
+                        <p class="mt-4 text-xs leading-relaxed text-slate-200 md:text-sm">
+                            Enhance your trading experience with MetaTrader 5’s fast execution,
+                            advanced charting and algorithmic strategies.
+                        </p>
+                    </div>
+                    <button
+                        class="mt-6 inline-flex items-center justify-center rounded-full bg-white px-5 py-2 text-xs font-semibold text-black shadow-sm hover:bg-slate-100">
+                        Start now <span class="ml-1 text-[11px]">↗</span>
+                    </button>
+                </article>
+
+            </div>
+        </div>
+    </div>
+</section>
